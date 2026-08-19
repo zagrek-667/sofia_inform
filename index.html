@@ -1,332 +1,78 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informe de Investigación: Metodología Cuantitativa y Medición Social</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
-                    },
-                    colors: {
-                        primary: '#1e3a8a', // blue-900
-                        secondary: '#3b82f6', // blue-500
-                        accent: '#e0f2fe', // sky-100
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Custom scrollbar for a polished look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-        .cite {
-            @apply text-xs font-semibold text-secondary align-super cursor-help px-1 bg-blue-50 rounded-full border border-blue-100 transition-colors hover:bg-blue-100;
-        }
-    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-secondary selection:text-white">
-
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold shadow-md">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold text-slate-900 leading-tight">Metodología Cuantitativa</h1>
-                    <p class="text-sm text-slate-500">Informe de Investigación Social</p>
-                </div>
-            </div>
-            <div class="hidden sm:block text-sm font-medium text-slate-400">
-                Documento de Análisis
-            </div>
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex flex-col lg:flex-row gap-8 relative">
+<body class="bg-gray-50">
+    <div class="max-w-4xl mx-auto p-8">
+        <h1 class="text-4xl font-bold text-blue-900 mb-4">Metodología Cuantitativa y Medición Social</h1>
+        <p class="text-gray-600 text-lg mb-8">Informe de Investigación Académica</p>
         
-        <!-- Barra de Navegación Lateral (Índice) -->
-        <aside class="lg:w-1/4 flex-shrink-0">
-            <div class="sticky top-28 bg-white rounded-xl shadow-sm border border-slate-200 p-5 hidden lg:block">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Tabla de Contenido</h3>
-                <nav class="space-y-1" id="toc">
-                    <a href="#intro" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">1. Comprensión provisional</a>
-                    <a href="#conceptos" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">2. Conceptos clave</a>
-                    <a href="#delimitacion" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">3. Delimitación sugerida</a>
-                    <a href="#preguntas" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">4. Preguntas de investigación</a>
-                    <a href="#objetivos" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">5. Posibles objetivos</a>
-                    <a href="#hipotesis" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">6. Hipótesis y categorías</a>
-                    <a href="#estrategia" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">7. Estrategia de búsqueda</a>
-                    <a href="#fuentes" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">8. Fuentes localizadas</a>
-                    <a href="#evaluacion" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">9. Evaluación de fuentes</a>
-                    <a href="#vacios" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">10. Vacíos o debates</a>
-                    <a href="#pasos" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">11. Próximos pasos</a>
-                </nav>
-            </div>
-        </aside>
-
-        <!-- Área de Contenido Principal -->
-        <article class="lg:w-3/4 bg-white rounded-2xl shadow-sm border border-slate-200 px-6 py-8 md:p-12 overflow-hidden">
-            
-            <div class="mb-12 text-center lg:text-left">
-                <h1 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-4 leading-snug">Informe de Investigación: Metodología Cuantitativa y Medición Social</h1>
-                <p class="text-lg text-slate-600 font-light">Este documento presenta un análisis y sistematización de los principios fundamentales de la medición cuantitativa en la investigación social.</p>
-                <div class="mt-6 border-b border-slate-200"></div>
-            </div>
-
-            <section id="intro" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">1</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Comprensión provisional del tema</h2>
-                </div>
-                <div class="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-4">
-                    <p>El tema central gira en torno a las metodologías de investigación social, prestando especial atención al sentido, los fundamentos teóricos y las operaciones prácticas que permiten traducir objetos y fenómenos sociales en datos cuantitativos susceptibles de tratamiento estadístico.</p>
-                </div>
+        <div class="bg-white rounded-lg shadow-md p-8 space-y-8">
+            <section>
+                <h2 class="text-2xl font-bold text-blue-800 mb-4">1. Comprensión provisional del tema</h2>
+                <p class="text-gray-700">El tema central gira en torno a las metodologías de investigación social, prestando especial atención al sentido, los fundamentos teóricos y las operaciones prácticas que permiten traducir objetos y fenómenos sociales en datos cuantitativos susceptibles de tratamiento estadístico.</p>
             </section>
 
-            <section id="conceptos" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">2</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Conceptos clave</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
-                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                            Metodología cuantitativa
-                        </h4>
-                        <p class="text-sm text-slate-600">Estrategia empírica que delimita conceptualmente propiedades de sujetos para asignarles números según su magnitud, grado o tipo <span class="cite" title="Fuente">[1]</span>.</p>
-                    </div>
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
-                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6a3 3 0 013-3h217-3 0 00-3 3v4a3 3 0 003 3h4a3 3 0 003-3V6z" /></svg>
-                            Medición
-                        </h4>
-                        <p class="text-sm text-slate-600">Proceso metódico de asignación de números a las propiedades de los objetos de estudio <span class="cite" title="Fuente">[2]</span>.</p>
-                    </div>
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
-                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                            Variabilización
-                        </h4>
-                        <p class="text-sm text-slate-600">Abstracción de la complejidad social aislando propiedades singulares que operan como alternativas comparables o valores <span class="cite" title="Fuente">[1]</span>.</p>
-                    </div>
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
-                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h4l1 1h4l1-1h4a2 2 0 012 2v2H4V6zm0 4h16v8a2 2 0 01-2 2H6a2 2 0 01-2-2v-8z" /></svg>
-                            Niveles de medición
-                        </h4>
-                        <p class="text-sm text-slate-600">Clasificaciones que otorgan distintos significados lógicos y estadísticos a los números (nominal, ordinal, intervalar y de razón) <span class="cite" title="Fuente">[2]</span>.</p>
-                    </div>
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 md:col-span-2 hover:shadow-md transition-shadow">
-                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
-                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5.36 4.64l-.707.707M9 9h.01" /></svg>
-                            Teoría representacional de la medición
-                        </h4>
-                        <p class="text-sm text-slate-600">Postulado predominante en las ciencias sociales que define medir no como encontrar magnitudes exactas, sino como la asignación de números para representar propiedades relativas <span class="cite" title="Fuente">[2]</span>.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="delimitacion" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">3</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Delimitación sugerida</h2>
-                </div>
-                <div class="pl-4 border-l-4 border-secondary/50 text-slate-700 italic">
-                    <p>El análisis metodológico se centrará en los fundamentos teóricos y el instrumental práctico que permite traducir una realidad social compleja a códigos numéricos procesables estadísticamente, enfatizando los debates entre perspectivas clásicas y representacionales de la medición.</p>
-                </div>
-            </section>
-
-            <section id="preguntas" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">4</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Preguntas de investigación</h2>
-                </div>
-                <ul class="space-y-3 mt-4 text-slate-700 bg-white shadow-sm border border-slate-100 rounded-xl p-6">
-                    <li class="flex items-start">
-                        <svg class="w-6 h-6 text-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        <span>¿Cuáles son las bases teóricas y las limitaciones empíricas del proceso de medición en la investigación cuantitativa? <span class="cite" title="Fuente">[2]</span></span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-6 h-6 text-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                        <span>¿De qué manera las teorías clásica y representacional de la medición moldean la interpretación de los datos en las ciencias sociales? <span class="cite" title="Fuente">[1]</span></span>
-                    </li>
+            <section>
+                <h2 class="text-2xl font-bold text-blue-800 mb-4">2. Conceptos clave</h2>
+                <ul class="space-y-3 text-gray-700">
+                    <li><strong>Metodología cuantitativa:</strong> Estrategia empírica que delimita conceptualmente propiedades de sujetos para asignarles números según su magnitud, grado o tipo.</li>
+                    <li><strong>Medición:</strong> Proceso metódico de asignación de números a las propiedades de los objetos de estudio.</li>
+                    <li><strong>Variabilización:</strong> Abstracción de la complejidad social aislando propiedades singulares que operan como alternativas comparables o valores.</li>
+                    <li><strong>Niveles de medición:</strong> Clasificaciones que otorgan distintos significados lógicos y estadísticos a los números (nominal, ordinal, intervalar y de razón).</li>
                 </ul>
             </section>
 
-            <section id="objetivos" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">5</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Posibles objetivos</h2>
-                </div>
-                
-                <div class="bg-primary text-white rounded-xl p-6 shadow-md mb-6 relative overflow-hidden">
-                    <div class="absolute -right-4 -top-4 opacity-10">
-                        <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2 relative z-10 flex items-center gap-2">
-                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                        Objetivo General
-                    </h3>
-                    <p class="relative z-10 text-blue-50">Analizar el sentido, las funciones operativas y las repercusiones de la medición cuantitativa en el estudio de fenómenos sociales <span class="cite" title="Fuente">[1]</span>.</p>
-                </div>
+            <section>
+                <h2 class="text-2xl font-bold text-blue-800 mb-4">3. Delimitación sugerida</h2>
+                <p class="text-gray-700">El análisis metodológico se centrará en los fundamentos teóricos y el instrumental práctico que permite traducir una realidad social compleja a códigos numéricos procesables estadísticamente, enfatizando los debates entre perspectivas clásicas y representacionales de la medición.</p>
+            </section>
 
-                <div class="ml-4 md:ml-8 border-l-2 border-slate-200 pl-6">
-                    <h3 class="font-bold text-slate-800 mb-3 flex items-center gap-2">
-                        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                        Objetivos Específicos
-                    </h3>
-                    <ul class="list-disc list-outside text-slate-700 ml-5 space-y-2">
-                        <li class="pl-2">Describir los distintos niveles de medición (nominal, ordinal, intervalar, de razón) y las operaciones estadísticas permitidas en cada uno <span class="cite" title="Fuente">[2]</span>.</li>
-                        <li class="pl-2">Contrastar la teoría clásica con la teoría representacional de la medición y determinar cómo estas abordan el problema de los indicadores indirectos.</li>
+            <section>
+                <h2 class="text-2xl font-bold text-blue-800 mb-4">4. Preguntas de investigación</h2>
+                <ul class="space-y-3 text-gray-700 list-disc list-inside">
+                    <li>¿Cuáles son las bases teóricas y las limitaciones empíricas del proceso de medición en la investigación cuantitativa?</li>
+                    <li>¿De qué manera las teorías clásica y representacional de la medición moldean la interpretación de los datos en las ciencias sociales?</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-bold text-blue-800 mb-4">5. Objetivos</h2>
+                <div class="bg-blue-900 text-white p-4 rounded mb-4">
+                    <h3 class="font-bold mb-2">Objetivo General:</h3>
+                    <p>Analizar el sentido, las funciones operativas y las repercusiones de la medición cuantitativa en el estudio de fenómenos sociales.</p>
+                </div>
+                <div class="bg-gray-100 p-4 rounded">
+                    <h3 class="font-bold text-gray-800 mb-2">Objetivos Específicos:</h3>
+                    <ul class="space-y-2 text-gray-700 list-disc list-inside">
+                        <li>Describir los distintos niveles de medición y las operaciones estadísticas permitidas en cada uno.</li>
+                        <li>Contrastar la teoría clásica con la teoría representacional de la medición.</li>
                     </ul>
                 </div>
             </section>
 
-            <section id="hipotesis" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">6</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Hipótesis de trabajo y Categorías analíticas</h2>
-                </div>
-                
-                <div class="flex flex-col md:flex-row gap-6 mt-6">
-                    <div class="flex-1 bg-amber-50 p-5 rounded-xl border border-amber-100">
-                        <h4 class="font-bold text-amber-900 mb-2 uppercase text-xs tracking-wider">Categorías analíticas</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white border border-amber-200 text-amber-800 rounded-full text-sm font-medium shadow-sm">Teorías de medición</span>
-                            <span class="px-3 py-1 bg-white border border-amber-200 text-amber-800 rounded-full text-sm font-medium shadow-sm">Niveles métricos</span>
-                            <span class="px-3 py-1 bg-white border border-amber-200 text-amber-800 rounded-full text-sm font-medium shadow-sm">Abstracción empírica</span>
-                            <span class="px-3 py-1 bg-white border border-amber-200 text-amber-800 rounded-full text-sm font-medium shadow-sm">Constructos latentes</span>
-                            <span class="cite" title="Fuente">[2]</span>
-                        </div>
-                    </div>
-                    
-                    <div class="flex-[2] bg-emerald-50 p-5 rounded-xl border border-emerald-100">
-                        <h4 class="font-bold text-emerald-900 mb-2 uppercase text-xs tracking-wider">Hipótesis provisional</h4>
-                        <p class="text-emerald-800 text-sm leading-relaxed">
-                            La aplicación rigurosa de metodologías cuantitativas no exige una postura epistemológica positivista, sino el dominio de un marco tecnológico de medición que simplifique la complejidad social mediante abstracciones sistemáticas.
-                        </p>
-                    </div>
-                </div>
+            <section>
+                <h2 class="text-2xl font-bold text-blue-800 mb-4">6. Hipótesis de trabajo</h2>
+                <p class="text-gray-700 bg-green-50 p-4 rounded">La aplicación rigurosa de metodologías cuantitativas no exige una postura epistemológica positivista, sino el dominio de un marco tecnológico de medición que simplifique la complejidad social mediante abstracciones sistemáticas.</p>
             </section>
 
-            <section id="estrategia" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">7</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Estrategia de búsqueda</h2>
-                </div>
-                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 flex items-start gap-4">
-                    <div class="p-3 bg-white rounded-lg shadow-sm">
-                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 mb-2">Palabras clave</h4>
-                        <p class="text-sm text-slate-600">Medición cuantitativa, metodología científica, niveles de medición, teoría representacional, indicadores sociales, escalas de medición.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="fuentes" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">8</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Fuentes localizadas</h2>
-                </div>
-                <div class="space-y-3">
-                    <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
-                        <h4 class="font-semibold text-blue-900 text-sm">Fuente Académica</h4>
-                        <p class="text-sm text-blue-800 mt-1">Estudios sobre metodología cuantitativa en investigación social</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="evaluacion" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">9</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Evaluación de fuentes</h2>
-                </div>
-                <p class="text-slate-700">Se evaluarán las fuentes según su relevancia académica, actualidad y validez metodológica.</p>
-            </section>
-
-            <section id="vacios" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">10</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Vacíos o debates</h2>
-                </div>
-                <p class="text-slate-700">Análisis de las controversias actuales en metodología cuantitativa y sus aplicaciones en ciencias sociales.</p>
-            </section>
-
-            <section id="pasos" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">11</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Próximos pasos</h2>
-                </div>
-                <ul class="list-disc list-outside text-slate-700 ml-5 space-y-2">
-                    <li class="pl-2">Profundizar en literatura especializada</li>
-                    <li class="pl-2">Desarrollar marco teórico completo</li>
-                    <li class="pl-2">Definir diseño metodológico específico</li>
+            <section>
+                <h2 class="text-2xl font-bold text-blue-800 mb-4">7. Próximos pasos</h2>
+                <ul class="space-y-2 text-gray-700 list-disc list-inside">
+                    <li>Profundizar en literatura especializada</li>
+                    <li>Desarrollar marco teórico completo</li>
+                    <li>Definir diseño metodológico específico</li>
                 </ul>
             </section>
-
-        </article>
-    </main>
-
-    <footer class="bg-slate-900 text-slate-100 py-8 mt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <p class="text-sm text-slate-400">© 2026 Investigación Académica | Metodología Cuantitativa y Medición Social</p>
-                <p class="text-sm text-slate-400 mt-4 md:mt-0">Documento versionado en GitHub Pages</p>
-            </div>
         </div>
-    </footer>
 
-    <script>
-        // Active link highlighting
-        const links = document.querySelectorAll('.toc-link');
-        const sections = document.querySelectorAll('section[id]');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            links.forEach(link => {
-                link.classList.remove('text-primary', 'bg-blue-50');
-                link.classList.add('text-slate-600');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.remove('text-slate-600');
-                    link.classList.add('text-primary', 'bg-blue-50');
-                }
-            });
-        });
-    </script>
+        <footer class="mt-12 pt-8 border-t border-gray-300 text-center text-gray-500">
+            <p>© 2026 Investigación Académica - Publicado en GitHub Pages</p>
+        </footer>
+    </div>
 </body>
 </html>
