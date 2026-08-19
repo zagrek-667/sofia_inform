@@ -1,78 +1,471 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Informe de Investigación: Metodología Cuantitativa y Medición Social</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    colors: {
+                        primary: '#1e3a8a', // blue-900
+                        secondary: '#3b82f6', // blue-500
+                        accent: '#e0f2fe', // sky-100
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for a polished look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .cite {
+            @apply text-xs font-semibold text-secondary align-super cursor-help px-1 bg-blue-50 rounded-full border border-blue-100 transition-colors hover:bg-blue-100;
+        }
+    </style>
 </head>
-<body class="bg-gray-50">
-    <div class="max-w-4xl mx-auto p-8">
-        <h1 class="text-4xl font-bold text-blue-900 mb-4">Metodología Cuantitativa y Medición Social</h1>
-        <p class="text-gray-600 text-lg mb-8">Informe de Investigación Académica</p>
-        
-        <div class="bg-white rounded-lg shadow-md p-8 space-y-8">
-            <section>
-                <h2 class="text-2xl font-bold text-blue-800 mb-4">1. Comprensión provisional del tema</h2>
-                <p class="text-gray-700">El tema central gira en torno a las metodologías de investigación social, prestando especial atención al sentido, los fundamentos teóricos y las operaciones prácticas que permiten traducir objetos y fenómenos sociales en datos cuantitativos susceptibles de tratamiento estadístico.</p>
-            </section>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-secondary selection:text-white">
 
-            <section>
-                <h2 class="text-2xl font-bold text-blue-800 mb-4">2. Conceptos clave</h2>
-                <ul class="space-y-3 text-gray-700">
-                    <li><strong>Metodología cuantitativa:</strong> Estrategia empírica que delimita conceptualmente propiedades de sujetos para asignarles números según su magnitud, grado o tipo.</li>
-                    <li><strong>Medición:</strong> Proceso metódico de asignación de números a las propiedades de los objetos de estudio.</li>
-                    <li><strong>Variabilización:</strong> Abstracción de la complejidad social aislando propiedades singulares que operan como alternativas comparables o valores.</li>
-                    <li><strong>Niveles de medición:</strong> Clasificaciones que otorgan distintos significados lógicos y estadísticos a los números (nominal, ordinal, intervalar y de razón).</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2 class="text-2xl font-bold text-blue-800 mb-4">3. Delimitación sugerida</h2>
-                <p class="text-gray-700">El análisis metodológico se centrará en los fundamentos teóricos y el instrumental práctico que permite traducir una realidad social compleja a códigos numéricos procesables estadísticamente, enfatizando los debates entre perspectivas clásicas y representacionales de la medición.</p>
-            </section>
-
-            <section>
-                <h2 class="text-2xl font-bold text-blue-800 mb-4">4. Preguntas de investigación</h2>
-                <ul class="space-y-3 text-gray-700 list-disc list-inside">
-                    <li>¿Cuáles son las bases teóricas y las limitaciones empíricas del proceso de medición en la investigación cuantitativa?</li>
-                    <li>¿De qué manera las teorías clásica y representacional de la medición moldean la interpretación de los datos en las ciencias sociales?</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2 class="text-2xl font-bold text-blue-800 mb-4">5. Objetivos</h2>
-                <div class="bg-blue-900 text-white p-4 rounded mb-4">
-                    <h3 class="font-bold mb-2">Objetivo General:</h3>
-                    <p>Analizar el sentido, las funciones operativas y las repercusiones de la medición cuantitativa en el estudio de fenómenos sociales.</p>
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
                 </div>
-                <div class="bg-gray-100 p-4 rounded">
-                    <h3 class="font-bold text-gray-800 mb-2">Objetivos Específicos:</h3>
-                    <ul class="space-y-2 text-gray-700 list-disc list-inside">
-                        <li>Describir los distintos niveles de medición y las operaciones estadísticas permitidas en cada uno.</li>
-                        <li>Contrastar la teoría clásica con la teoría representacional de la medición.</li>
+                <div>
+                    <h1 class="text-xl font-bold text-slate-900 leading-tight">Metodología Cuantitativa</h1>
+                    <p class="text-sm text-slate-500">Informe de Investigación Social</p>
+                </div>
+            </div>
+            <div class="hidden sm:block text-sm font-medium text-slate-400">
+                Documento de Análisis
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex flex-col lg:flex-row gap-8 relative">
+        
+        <!-- Barra de Navegación Lateral (Índice) -->
+        <aside class="lg:w-1/4 flex-shrink-0">
+            <div class="sticky top-28 bg-white rounded-xl shadow-sm border border-slate-200 p-5 hidden lg:block">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Tabla de Contenido</h3>
+                <nav class="space-y-1" id="toc">
+                    <a href="#intro" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">1. Comprensión provisional</a>
+                    <a href="#conceptos" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">2. Conceptos clave</a>
+                    <a href="#delimitacion" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">3. Delimitación sugerida</a>
+                    <a href="#preguntas" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">4. Preguntas de investigación</a>
+                    <a href="#objetivos" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">5. Posibles objetivos</a>
+                    <a href="#hipotesis" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">6. Hipótesis y categorías</a>
+                    <a href="#estrategia" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">7. Estrategia de búsqueda</a>
+                    <a href="#fuentes" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">8. Fuentes localizadas</a>
+                    <a href="#evaluacion" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">9. Evaluación de fuentes</a>
+                    <a href="#vacios" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">10. Vacíos o debates</a>
+                    <a href="#pasos" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">11. Próximos pasos</a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Área de Contenido Principal -->
+        <article class="lg:w-3/4 bg-white rounded-2xl shadow-sm border border-slate-200 px-6 py-8 md:p-12 overflow-hidden">
+            
+            <div class="mb-12 text-center lg:text-left">
+                <h1 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-4 leading-snug">Informe de Investigación: Metodología Cuantitativa y Medición Social</h1>
+                <p class="text-lg text-slate-600 font-light">Este documento presenta un análisis y sistematización de los principios fundamentales de la medición cuantitativa en la investigación social, elaborado a partir del texto analizado <span class="cite" title="Fuente 2">[2]</span>.</p>
+                <div class="mt-6 border-b border-slate-200"></div>
+            </div>
+
+            <section id="intro" class="mb-12 scroll-mt-32">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">1</span>
+                    <h2 class="text-2xl font-bold text-slate-900">Comprensión provisional del tema</h2>
+                </div>
+                <div class="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-4">
+                    <p>El tema central gira en torno a las metodologías de investigación social, prestando especial atención al sentido, los fundamentos teóricos y las operaciones prácticas de la metodología cuantitativa <span class="cite" title="Fuente 2">[2]</span>. El documento desmitifica la idea de que los métodos cuantitativos son estrictamente "positivistas" o conservadores, argumentando que la ideología recae en el uso y no en la técnica <span class="cite" title="Fuente 2">[2]</span>. Más bien, lo cuantitativo se comprende como una tecnología de variabilización y abstracción de la realidad mediante la utilización de números <span class="cite" title="Fuente 2">[2]</span>.</p>
+                </div>
+            </section>
+
+            <section id="conceptos" class="mb-12 scroll-mt-32">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">2</span>
+                    <h2 class="text-2xl font-bold text-slate-900">Conceptos clave</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
+                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            Metodología cuantitativa
+                        </h4>
+                        <p class="text-sm text-slate-600">Estrategia empírica que delimita conceptualmente propiedades de sujetos para asignarles números según su magnitud, grado o tipo <span class="cite" title="Fuente 2">[2]</span>.</p>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
+                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+                            Medición
+                        </h4>
+                        <p class="text-sm text-slate-600">Proceso metódico de asignación de números a las propiedades de los objetos de estudio <span class="cite" title="Fuente 2">[2]</span>.</p>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
+                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                            Variabilización
+                        </h4>
+                        <p class="text-sm text-slate-600">Abstracción de la complejidad social aislando propiedades singulares que operan como alternativas comparables o valores <span class="cite" title="Fuente 2">[2]</span>.</p>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
+                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path></svg>
+                            Niveles de medición
+                        </h4>
+                        <p class="text-sm text-slate-600">Clasificaciones que otorgan distintos significados lógicos y estadísticos a los números (nominal, ordinal, intervalar y de razón) <span class="cite" title="Fuente 2">[2]</span>.</p>
+                    </div>
+                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 md:col-span-2 hover:shadow-md transition-shadow">
+                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
+                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                            Teoría representacional de la medición
+                        </h4>
+                        <p class="text-sm text-slate-600">Postulado predominante en las ciencias sociales que define medir no como encontrar magnitudes exactas, sino como la asignación de números siguiendo reglas estructuradas que representan fielmente las relaciones del mundo real <span class="cite" title="Fuente 2">[2]</span>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="delimitacion" class="mb-12 scroll-mt-32">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">3</span>
+                    <h2 class="text-2xl font-bold text-slate-900">Delimitación sugerida</h2>
+                </div>
+                <div class="pl-4 border-l-4 border-secondary/50 text-slate-700 italic">
+                    <p>El análisis metodológico se centrará en los fundamentos teóricos y el instrumental práctico que permite traducir una realidad social compleja a códigos numéricos procesables (variables) <span class="cite" title="Fuente 2">[2]</span>. Se abarca desde el planteamiento de una medición hasta las condiciones de validez estadística <span class="cite" title="Fuente 2">[2]</span>.</p>
+                </div>
+            </section>
+
+            <section id="preguntas" class="mb-12 scroll-mt-32">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">4</span>
+                    <h2 class="text-2xl font-bold text-slate-900">Preguntas de investigación</h2>
+                </div>
+                <ul class="space-y-3 mt-4 text-slate-700 bg-white shadow-sm border border-slate-100 rounded-xl p-6">
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span>¿Cuáles son las bases teóricas y las limitaciones empíricas del proceso de medición en la investigación cuantitativa? <span class="cite" title="Fuente 2">[2]</span></span>
+                    </li>
+                    <li class="flex items-start">
+                        <svg class="w-6 h-6 text-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <span>¿De qué manera las teorías clásica y representacional de la medición moldean la interpretación de los datos en las ciencias sociales? <span class="cite" title="Fuente 2">[2]</span></span>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="objetivos" class="mb-12 scroll-mt-32">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">5</span>
+                    <h2 class="text-2xl font-bold text-slate-900">Posibles objetivos</h2>
+                </div>
+                
+                <div class="bg-primary text-white rounded-xl p-6 shadow-md mb-6 relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 opacity-10">
+                        <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 relative z-10 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        Objetivo General
+                    </h3>
+                    <p class="relative z-10 text-blue-50">Analizar el sentido, las funciones operativas y las repercusiones de la medición cuantitativa en el estudio de fenómenos sociales <span class="cite" style="color: #fff; background: rgba(255,255,255,0.2); border: none;" title="Fuente 2">[2]</span>.</p>
+                </div>
+
+                <div class="ml-4 md:ml-8 border-l-2 border-slate-200 pl-6">
+                    <h3 class="font-bold text-slate-800 mb-3 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        Objetivos Específicos
+                    </h3>
+                    <ul class="list-disc list-outside text-slate-700 ml-5 space-y-2">
+                        <li class="pl-2">Describir los distintos niveles de medición (nominal, ordinal, intervalar, de razón) y las operaciones estadísticas permitidas en cada uno <span class="cite" title="Fuente 2">[2]</span>.</li>
+                        <li class="pl-2">Contrastar la teoría clásica con la teoría representacional de la medición y determinar cómo estas abordan el problema de los indicadores indirectos <span class="cite" title="Fuente 2">[2]</span>.</li>
                     </ul>
                 </div>
             </section>
 
-            <section>
-                <h2 class="text-2xl font-bold text-blue-800 mb-4">6. Hipótesis de trabajo</h2>
-                <p class="text-gray-700 bg-green-50 p-4 rounded">La aplicación rigurosa de metodologías cuantitativas no exige una postura epistemológica positivista, sino el dominio de un marco tecnológico de medición que simplifique la complejidad social mediante abstracciones sistemáticas.</p>
+            <section id="hipotesis" class="mb-12 scroll-mt-32">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">6</span>
+                    <h2 class="text-2xl font-bold text-slate-900">Hipótesis de trabajo y Categorías analíticas</h2>
+                </div>
+                
+                <div class="flex flex-col md:flex-row gap-6 mt-6">
+                    <div class="flex-1 bg-amber-50 p-5 rounded-xl border border-amber-100">
+                        <h4 class="font-bold text-amber-900 mb-2 uppercase text-xs tracking-wider">Categorías analíticas</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white border border-amber-200 text-amber-800 rounded-full text-sm font-medium shadow-sm">Teorías de medición</span>
+                            <span class="px-3 py-1 bg-white border border-amber-200 text-amber-800 rounded-full text-sm font-medium shadow-sm">Niveles métricos</span>
+                            <span class="px-3 py-1 bg-white border border-amber-200 text-amber-800 rounded-full text-sm font-medium shadow-sm">Abstracción empírica</span>
+                            <span class="px-3 py-1 bg-white border border-amber-200 text-amber-800 rounded-full text-sm font-medium shadow-sm">Constructos latentes</span>
+                            <span class="cite" title="Fuente 2">[2]</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-[2] bg-emerald-50 p-5 rounded-xl border border-emerald-100">
+                        <h4 class="font-bold text-emerald-900 mb-2 uppercase text-xs tracking-wider">Hipótesis provisional</h4>
+                        <p class="text-emerald-800 text-sm leading-relaxed">
+                            La aplicación rigurosa de metodologías cuantitativas no exige una postura epistemológica positivista, sino el dominio de un marco tecnológico de medición que simplifica analíticamente constructos sociales abstractos mediante la asignación lógica de indicadores numéricos <span class="cite !bg-emerald-100 !border-emerald-200 !text-emerald-700" title="Fuente 2">[2]</span>.
+                        </p>
+                    </div>
+                </div>
             </section>
 
-            <section>
-                <h2 class="text-2xl font-bold text-blue-800 mb-4">7. Próximos pasos</h2>
-                <ul class="space-y-2 text-gray-700 list-disc list-inside">
-                    <li>Profundizar en literatura especializada</li>
-                    <li>Desarrollar marco teórico completo</li>
-                    <li>Definir diseño metodológico específico</li>
-                </ul>
+            <section id="estrategia" class="mb-12 scroll-mt-32">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">7</span>
+                    <h2 class="text-2xl font-bold text-slate-900">Estrategia de búsqueda</h2>
+                </div>
+                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 flex items-start gap-4">
+                    <div class="p-3 bg-white rounded-lg shadow-sm">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-slate-800 mb-1">Palabras clave y Descriptores</h4>
+                        <p class="text-sm text-slate-600 mb-4">Se recomienda el uso de bases de datos académicas (como Scopus, SciELO, Redalyc) empleando términos combinados como: <em>"teoría de la medición"</em>, <em>"metodología cuantitativa"</em>, <em>"niveles de medición"</em> y <em>"ciencias sociales"</em>.</p>
+                        
+                        <button id="generate-keywords-btn" class="inline-flex items-center gap-2 text-xs font-medium text-white bg-primary px-3 py-1.5 rounded-lg hover:bg-blue-800 transition-colors shadow-sm">
+                            <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            Sugerir más con IA
+                        </button>
+                        <div id="ai-keywords-container" class="mt-3 hidden">
+                            <div class="flex items-center gap-2 text-sm text-slate-500 font-medium" id="ai-keywords-loading">
+                                <svg class="animate-spin w-4 h-4 text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                                Analizando contexto y generando...
+                            </div>
+                            <div id="ai-keywords-result" class="flex flex-wrap gap-2"></div>
+                        </div>
+                    </div>
+                </div>
             </section>
+
+        </article>
+    </main>
+
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <div id="ai-chat-window" class="hidden w-[90vw] sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden mb-4 flex-col h-[500px] max-h-[80vh] transition-all transform origin-bottom-right">
+            <div class="bg-primary text-white p-4 flex justify-between items-center shadow-md z-10">
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <h3 class="font-bold text-sm">Asistente de Investigación</h3>
+                </div>
+                <button id="close-chat-btn" class="text-white hover:text-accent transition-colors" title="Cerrar chat">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-slate-50 flex flex-col gap-3">
+                <div class="bg-white border border-slate-200 p-3 rounded-xl rounded-tl-none self-start max-w-[85%] text-sm text-slate-700 shadow-sm leading-relaxed">
+                    ¡Hola! Soy tu asistente de IA especializado en este informe. ¿Tienes alguna pregunta sobre metodología cuantitativa o medición social?
+                </div>
+            </div>
+            <div class="p-3 bg-white border-t border-slate-200">
+                <form id="chat-form" class="flex gap-2">
+                    <input type="text" id="chat-input" class="flex-1 border border-slate-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent placeholder:text-slate-400" placeholder="Escribe tu pregunta..." autocomplete="off" required>
+                    <button type="submit" class="bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors shadow-md flex-shrink-0">
+                        <svg class="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
+                    </button>
+                </form>
+            </div>
         </div>
-
-        <footer class="mt-12 pt-8 border-t border-gray-300 text-center text-gray-500">
-            <p>© 2026 Investigación Académica - Publicado en GitHub Pages</p>
-        </footer>
+        
+        <button id="toggle-chat-btn" class="w-14 h-14 bg-secondary text-white rounded-full shadow-xl hover:bg-blue-600 transition-transform hover:scale-105 flex items-center justify-center relative group" aria-label="Abrir Asistente">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+            <span class="absolute top-0 right-0 flex h-3.5 w-3.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-accent border-2 border-secondary"></span>
+            </span>
+            <div class="absolute right-16 bg-slate-800 text-white text-xs font-semibold py-1 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                Consultar IA
+            </div>
+        </button>
     </div>
+
+    <script>
+        // Use an empty string for the API key in this environment; the Canvas provides it at runtime.
+        const apiKey = ""; 
+        const modelUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+        
+        const generateKwBtn = document.getElementById('generate-keywords-btn');
+        if (generateKwBtn) {
+            generateKwBtn.addEventListener('click', async () => {
+                const container = document.getElementById('ai-keywords-container');
+                const loading = document.getElementById('ai-keywords-loading');
+                const resultDiv = document.getElementById('ai-keywords-result');
+                
+                generateKwBtn.disabled = true;
+                generateKwBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                container.classList.remove('hidden');
+                loading.classList.remove('hidden');
+                resultDiv.innerHTML = '';
+
+                // Define JSON Schema payload for structured outputs
+                const payload = {
+                    contents: [{ parts: [{ text: "Genera 5 palabras clave de búsqueda adicionales (mezcla español e inglés) para encontrar literatura científica avanzada sobre metodología cuantitativa y teoría representacional de la medición en ciencias sociales. Responde ESTRICTAMENTE con un arreglo JSON de strings. Ejemplo: [\"keyword 1\", \"keyword 2\"]." }] }],
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                    }
+                };
+
+                try {
+                    const response = await fetch(modelUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates[0].content) {
+                        const jsonText = result.candidates[0].content.parts[0].text;
+                        const keywords = JSON.parse(jsonText);
+                        
+                        loading.classList.add('hidden');
+                        keywords.forEach((kw, index) => {
+                            const span = document.createElement('span');
+                            span.className = 'px-3 py-1 bg-accent/30 border border-blue-200 text-primary rounded-full text-xs font-medium shadow-sm transition-all duration-300 opacity-0 transform translate-y-2';
+                            span.textContent = kw;
+                            resultDiv.appendChild(span);
+                            // Stagger the animation of the chips rendering
+                            setTimeout(() => {
+                                span.classList.remove('opacity-0', 'translate-y-2');
+                            }, index * 100);
+                        });
+                        generateKwBtn.classList.add('hidden');
+                    } else {
+                        throw new Error("Respuesta inválida de la API");
+                    }
+                } catch (e) {
+                    loading.classList.add('hidden');
+                    resultDiv.innerHTML = '<span class="text-xs text-red-500 font-medium bg-red-50 px-2 py-1 rounded">Ocurrió un error al generar las palabras clave. Intenta nuevamente.</span>';
+                    generateKwBtn.disabled = false;
+                    generateKwBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                }
+            });
+        }
+
+        const chatWindow = document.getElementById('ai-chat-window');
+        const toggleBtn = document.getElementById('toggle-chat-btn');
+        const closeBtn = document.getElementById('close-chat-btn');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+        
+        // This array keeps track of the multi-turn conversation
+        let chatHistory = [];
+        const systemInstruction = "Eres un asistente de investigación experto en ciencias sociales, metodología cuantitativa y teoría de la medición. Tu trabajo es ayudar al usuario a profundizar en los conceptos del informe. Responde de forma concisa, analítica y amigable. Utiliza saltos de línea para facilitar la lectura. No uses Markdown pesado que no se pueda renderizar fácilmente (evita negritas con asteriscos si es posible o asume que se leerá en texto plano). Mantén un tono académico pero accesible.";
+
+        function toggleChat() {
+            const isHidden = chatWindow.classList.contains('hidden');
+            if (isHidden) {
+                chatWindow.classList.remove('hidden');
+                chatWindow.classList.add('flex');
+                setTimeout(() => chatInput.focus(), 100);
+            } else {
+                chatWindow.classList.add('hidden');
+                chatWindow.classList.remove('flex');
+            }
+        }
+
+        toggleBtn.addEventListener('click', toggleChat);
+        closeBtn.addEventListener('click', toggleChat);
+
+        function appendMessage(text, isUser = false) {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `p-3 rounded-xl text-sm shadow-sm leading-relaxed max-w-[85%] ${
+                isUser 
+                ? 'bg-secondary text-white self-end rounded-tr-none' 
+                : 'bg-white border border-slate-200 text-slate-700 self-start rounded-tl-none whitespace-pre-wrap'
+            }`;
+            msgDiv.textContent = text;
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            return msgDiv;
+        }
+
+        function appendLoading() {
+            const msgDiv = document.createElement('div');
+            msgDiv.className = 'bg-white border border-slate-200 p-3 rounded-xl rounded-tl-none self-start max-w-[85%] text-sm text-slate-500 shadow-sm flex items-center gap-2';
+            msgDiv.id = 'chat-loading-indicator';
+            msgDiv.innerHTML = '<span class="flex gap-1"><span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0.1s"></span><span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></span></span> Procesando...';
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeLoading() {
+            const loadingMsg = document.getElementById('chat-loading-indicator');
+            if (loadingMsg) loadingMsg.remove();
+        }
+
+        chatForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if (!text) return;
+            
+            appendMessage(text, true);
+            chatInput.value = '';
+            chatInput.disabled = true; // Prevent spam
+            
+            // Add user message to local history array for context continuity
+            chatHistory.push({ role: "user", parts: [{ text }] });
+            
+            appendLoading();
+
+            const payload = {
+                contents: chatHistory,
+                systemInstruction: { parts: [{ text: systemInstruction }] }
+            };
+
+            try {
+                const response = await fetch(modelUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                const result = await response.json();
+                removeLoading();
+                chatInput.disabled = false;
+                chatInput.focus();
+                
+                if (result.candidates && result.candidates.length > 0) {
+                    const aiText = result.candidates[0].content.parts[0].text;
+                    appendMessage(aiText, false);
+                    // Append the model's response to history to maintain context for follow-ups
+                    chatHistory.push({ role: "model", parts: [{ text: aiText }] });
+                } else {
+                    throw new Error("Sin respuesta del modelo");
+                }
+            } catch (error) {
+                console.error("Chat Error:", error);
+                removeLoading();
+                chatInput.disabled = false;
+                appendMessage("Lo siento, ocurrió un error al conectarme con la IA. Por favor verifica tu red e intenta de nuevo.", false);
+                // On error, remove the user's message from history so they can retry properly
+                chatHistory.pop(); 
+            }
+        });
+    </script>
 </body>
 </html>
