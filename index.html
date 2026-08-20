@@ -1,541 +1,160 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informe de Investigación: Metodología Cuantitativa y Medición Social</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
-                    },
-                    colors: {
-                        primary: '#1e3a8a', // blue-900
-                        secondary: '#3b82f6', // blue-500
-                        accent: '#e0f2fe', // sky-100
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Custom scrollbar for a polished look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-        }
-        .cite {
-            @apply text-xs font-semibold text-secondary align-super cursor-help px-1 bg-blue-50 rounded-full border border-blue-100 transition-colors hover:bg-blue-100;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Demo IA - Metodología Cuantitativa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    .chat-bubble { white-space: pre-wrap; }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-secondary selection:text-white">
-
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-white font-bold shadow-md">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707"></path>
-                    </svg>
-                </div>
-                <div>
-                    <h1 class="text-xl font-bold text-slate-900 leading-tight">Metodología Cuantitativa</h1>
-                    <p class="text-sm text-slate-500">Informe de Investigación Social</p>
-                </div>
-            </div>
-            <div class="hidden sm:block text-sm font-medium text-slate-400">
-                Documento de Análisis
-            </div>
-        </div>
-    </header>
-
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 flex flex-col lg:flex-row gap-8 relative">
-        
-        <!-- Barra de Navegación Lateral (Índice) -->
-        <aside class="lg:w-1/4 flex-shrink-0">
-            <div class="sticky top-28 bg-white rounded-xl shadow-sm border border-slate-200 p-5 hidden lg:block">
-                <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4">Tabla de Contenido</h3>
-                <nav class="space-y-1" id="toc">
-                    <a href="#intro" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">1. Comprensión provisional</a>
-                    <a href="#conceptos" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">2. Conceptos clave</a>
-                    <a href="#delimitacion" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">3. Delimitación sugerida</a>
-                    <a href="#preguntas" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">4. Preguntas de investigación</a>
-                    <a href="#objetivos" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">5. Posibles objetivos</a>
-                    <a href="#hipotesis" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">6. Hipótesis y categorías</a>
-                    <a href="#estrategia" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">7. Estrategia de búsqueda</a>
-                    <a href="#fuentes" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">8. Fuentes localizadas</a>
-                    <a href="#evaluacion" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">9. Evaluación de fuentes</a>
-                    <a href="#vacios" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">10. Vacíos o debates</a>
-                    <a href="#pasos" class="toc-link block px-3 py-2 text-sm font-medium rounded-md text-slate-600 hover:text-primary hover:bg-slate-50 transition-colors">11. Próximos pasos</a>
-                </nav>
-            </div>
-        </aside>
-
-        <!-- Área de Contenido Principal -->
-        <article class="lg:w-3/4 bg-white rounded-2xl shadow-sm border border-slate-200 px-6 py-8 md:p-12 overflow-hidden" id="main-article">
-            
-            <div class="mb-12 text-center lg:text-left">
-                <h1 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 mb-4 leading-snug">Informe de Investigación: Metodología Cuantitativa y Medición Social</h1>
-                <p class="text-lg text-slate-600 font-light">Este documento presenta un análisis y sistematización de los principios fundamentales de la medición cuantitativa en la investigación social.</p>
-                <div class="mt-6 border-b border-slate-200"></div>
-            </div>
-
-            <section id="intro" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">1</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Comprensión provisional del tema</h2>
-                </div>
-                <div class="prose prose-slate max-w-none text-slate-700 leading-relaxed space-y-4">
-                    <p>El tema central gira en torno a las metodologías de investigación social, prestando especial atención al sentido, los fundamentos teóricos y las operaciones prácticas de la medición cuantitativa.</p>
-                </div>
-            </section>
-
-            <section id="conceptos" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">2</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Conceptos clave</h2>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
-                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6"></path></svg>
-                            Metodología cuantitativa
-                        </h4>
-                        <p class="text-sm text-slate-600">Estrategia empírica que delimita conceptualmente propiedades de sujetos para asignarles números según su magnitud, grado o tipo.</p>
-                    </div>
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
-                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1"></path></svg>
-                            Medición
-                        </h4>
-                        <p class="text-sm text-slate-600">Proceso metódico de asignación de números a las propiedades de los objetos de estudio.</p>
-                    </div>
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
-                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3"></path></svg>
-                            Variabilización
-                        </h4>
-                        <p class="text-sm text-slate-600">Abstracción de la complejidad social aislando propiedades singulares que operan como alternativas comparables o valores.</p>
-                    </div>
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 hover:shadow-md transition-shadow">
-                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
-                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16"></path></svg>
-                            Niveles de medición
-                        </h4>
-                        <p class="text-sm text-slate-600">Clasificaciones que otorgan distintos significados lógicos y estadísticos a los números (nominal, ordinal, intervalar y de razón).</p>
-                    </div>
-                    <div class="bg-slate-50 p-5 rounded-xl border border-slate-100 md:col-span-2 hover:shadow-md transition-shadow">
-                        <h4 class="font-bold text-slate-900 flex items-center gap-2 mb-2">
-                            <svg class="w-5 h-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17"></path></svg>
-                            Teoría representacional de la medición
-                        </h4>
-                        <p class="text-sm text-slate-600">Postulado predominante en las ciencias sociales que define medir no como encontrar magnitudes exactas, sino como la asignación de números simbólicos que permitan comparaciones.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="delimitacion" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">3</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Delimitación sugerida</h2>
-                </div>
-                <div class="pl-4 border-l-4 border-secondary/50 text-slate-700 italic">
-                    <p>El análisis metodológico se centrará en los fundamentos teóricos y el instrumental práctico que permite traducir una realidad social compleja a códigos numéricos procesables.</p>
-                </div>
-            </section>
-
-            <section id="preguntas" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">4</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Preguntas de investigación</h2>
-                </div>
-                <ul class="space-y-3 mt-4 text-slate-700 bg-white shadow-sm border border-slate-100 rounded-xl p-6">
-                    <li class="flex items-start">
-                        <svg class="w-6 h-6 text-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3"></path></svg>
-                        <span>¿Cuáles son las bases teóricas y las limitaciones empíricas del proceso de medición en la investigación cuantitativa?</span>
-                    </li>
-                    <li class="flex items-start">
-                        <svg class="w-6 h-6 text-primary flex-shrink-0 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3"></path></svg>
-                        <span>¿De qué manera las teorías clásica y representacional de la medición moldean la interpretación de los datos en las ciencias sociales?</span>
-                    </li>
-                </ul>
-            </section>
-
-            <section id="objetivos" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-6">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">5</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Posibles objetivos</h2>
-                </div>
-                
-                <div class="bg-primary text-white rounded-xl p-6 shadow-md mb-6 relative overflow-hidden">
-                    <div class="absolute -right-4 -top-4 opacity-10">
-                        <svg class="w-32 h-32" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16z"></path></svg>
-                    </div>
-                    <h3 class="font-bold text-lg mb-2 relative z-10 flex items-center gap-2">
-                        <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        Objetivo General
-                    </h3>
-                    <p class="relative z-10 text-blue-50">Analizar el sentido, las funciones operativas y las repercusiones de la medición cuantitativa en el estudio de fenómenos sociales.</p>
-                </div>
-
-                <div class="ml-4 md:ml-8 border-l-2 border-slate-200 pl-6">
-                    <h3 class="font-bold text-slate-800 mb-3 flex items-center gap-2">
-                        <svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        Objetivos Específicos
-                    </h3>
-                    <ul class="list-disc list-outside text-slate-700 ml-5 space-y-2">
-                        <li class="pl-2">Describir los distintos niveles de medición (nominal, ordinal, intervalar, de razón) y las operaciones estadísticas permitidas en cada uno.</li>
-                        <li class="pl-2">Contrastar la teoría clásica con la teoría representacional de la medición y determinar cómo estas abordan el problema de los indicadores indirectos.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="hipotesis" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">6</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Hipótesis de trabajo y Categorías analíticas</h2>
-                </div>
-                
-                <div class="flex flex-col md:flex-row gap-6 mt-6">
-                    <div class="flex-1 bg-amber-50 p-5 rounded-xl border border-amber-100">
-                        <h4 class="font-bold text-amber-900 mb-2 uppercase text-xs tracking-wider">Categorías analíticas</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-white border border-amber-200 text-amber-800 rounded-full text-sm font-medium shadow-sm">Teorías de medición</span>
-                            <span class="px-3 py-1 bg-white border border-amber-200 text-amber-800 rounded-full text-sm font-medium shadow-sm">Niveles métricos</span>
-                            <span class="px-3 py-1 bg-white border border-amber-200 text-amber-800 rounded-full text-sm font-medium shadow-sm">Abstracción empírica</span>
-                            <span class="px-3 py-1 bg-white border border-amber-200 text-amber-800 rounded-full text-sm font-medium shadow-sm">Constructos latentes</span>
-                        </div>
-                    </div>
-                    
-                    <div class="flex-[2] bg-emerald-50 p-5 rounded-xl border border-emerald-100">
-                        <h4 class="font-bold text-emerald-900 mb-2 uppercase text-xs tracking-wider">Hipótesis provisional</h4>
-                        <p class="text-emerald-800 text-sm leading-relaxed">
-                            La aplicación rigurosa de metodologías cuantitativas no exige una postura epistemológica positivista, sino el dominio de un marco tecnológico de medición que simplifique y permita comparar observables sociales.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="estrategia" class="mb-12 scroll-mt-32">
-                <div class="flex items-center gap-3 mb-4">
-                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-accent text-primary font-bold text-sm">7</span>
-                    <h2 class="text-2xl font-bold text-slate-900">Estrategia de búsqueda</h2>
-                </div>
-                <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 flex items-start gap-4">
-                    <div class="p-3 bg-white rounded-lg shadow-sm">
-                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6"></path></svg>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-slate-800 mb-1">Palabras clave y Descriptores</h4>
-                        <p class="text-sm text-slate-600 mb-4">Se recomienda el uso de bases de datos académicas (como Scopus, SciELO, Redalyc) empleando términos combinados como: <em>"teoría de la medición", "niveles de medición", "indicadores sociales"</em>.</p>
-                        
-                        <button id="generate-keywords-btn" class="inline-flex items-center gap-2 text-xs font-medium text-white bg-primary px-3 py-1.5 rounded-lg hover:bg-blue-800 transition-colors shadow-sm">
-                            <svg class="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            Sugerir más con IA
-                        </button>
-                        <div id="ai-keywords-container" class="mt-3 hidden">
-                            <div class="flex items-center gap-2 text-sm text-slate-500 font-medium" id="ai-keywords-loading">
-                                <svg class="animate-spin w-4 h-4 text-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle></svg>
-                                Analizando contexto y generando...
-                            </div>
-                            <div id="ai-keywords-result" class="flex flex-wrap gap-2"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </article>
-    </main>
-
-    <div id="ai-chat-widget" class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-        <div id="ai-chat-window" class="hidden w-[90vw] sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden mb-4 flex-col h-[500px] max-h-[80vh] transition-all transform origin-bottom-right">
-            <div class="bg-primary text-white p-4 flex justify-between items-center shadow-md z-10">
-                <div class="flex items-center gap-2">
-                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8"></path></svg>
-                    <h3 class="font-bold text-sm">Asistente de Investigación</h3>
-                </div>
-                <button id="close-chat-btn" class="text-white hover:text-accent transition-colors" title="Cerrar chat">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto bg-slate-50 flex flex-col gap-3">
-                <div class="bg-white border border-slate-200 p-3 rounded-xl rounded-tl-none self-start max-w-[85%] text-sm text-slate-700 shadow-sm leading-relaxed">
-                    ¡Hola! Soy tu asistente de IA especializado en este informe. ¿Tienes alguna pregunta sobre metodología cuantitativa o medición social?
-                </div>
-            </div>
-            <div class="p-3 bg-white border-t border-slate-200">
-                <form id="chat-form" class="flex gap-2">
-                    <input type="text" id="chat-input" autocomplete="off" placeholder="Escribe tu pregunta..." class="flex-1 border border-slate-300 rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-secondary">
-                    <button type="submit" class="bg-secondary text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors shadow-md flex-shrink-0">
-                        <svg class="w-4 h-4 ml-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.713.962l5 1.428A1 1 0 0018.894 16.55l-7-14z"></path></svg>
-                    </button>
-                </form>
-            </div>
-        </div>
-        
-        <button id="toggle-chat-btn" class="w-14 h-14 bg-secondary text-white rounded-full shadow-xl hover:bg-blue-600 transition-transform hover:scale-105 flex items-center justify-center relative group">
-            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V7a2 2 0 012-2h14a2 2 0 012 2v5a2 2 0 01-2 2h-5"></path></svg>
-            <span class="absolute top-0 right-0 flex h-3.5 w-3.5">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-accent border-2 border-secondary"></span>
-            </span>
-            <div class="absolute right-16 bg-slate-800 text-white text-xs font-semibold py-1 px-3 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                Consultar IA
-            </div>
-        </button>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+  <header class="bg-white border-b shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div>
+        <h1 class="text-lg font-semibold">Informe: Metodología Cuantitativa (Demo IA)</h1>
+        <p class="text-sm text-slate-500">Interfaz de demostración que incluye un asistente local (fallback) y un generador de palabras clave.</p>
+      </div>
+      <div class="text-xs text-slate-400">Archivo reemplazado para demo</div>
     </div>
+  </header>
 
-    <script>
-        // ========== CONFIGURACIÓN ==========
-        // Para usar un modelo real, configura un endpoint servidor seguro que no exponga claves en el navegador.
-        // Ejemplo de respuesta esperada del servidor (POST JSON): { reply: 'texto de la respuesta' }
-        const SERVER_CHAT_ENDPOINT = ""; // p.ej. "https://mi-servidor.example.com/api/chat"
+  <main class="max-w-4xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <section class="lg:col-span-2 bg-white rounded-xl p-6 shadow-sm">
+      <h2 class="text-xl font-semibold mb-3">Resumen del documento</h2>
+      <p class="text-slate-700 leading-relaxed">Este documento explica conceptos clave sobre la medición en investigación social: niveles de medición (nominal, ordinal, intervalar, razón), teoría representacional, construcción de indicadores y procedimientos de validación.</p>
 
-        // Modo local: Si no hay endpoint, la IA funcionará con un asistente local heurístico.
+      <div class="mt-6">
+        <h3 class="font-medium">Estrategia de búsqueda</h3>
+        <p class="text-sm text-slate-600">Usa el botón para generar palabras clave mixtas (español / inglés) que te ayudarán a buscar literatura académica.</p>
+        <div class="mt-3 flex items-center gap-3">
+          <button id="generate-keywords-btn" class="bg-blue-600 text-white px-3 py-2 rounded-lg shadow-sm text-sm">Sugerir palabras clave</button>
+          <div id="ai-keywords-result" class="flex flex-wrap gap-2"></div>
+        </div>
+      </div>
 
-        // ======= UTILIDADES =======
-        function escapeHtml(str) {
-            return str.replace(/[&<>"]+/g, (s) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[s]));
+      <div class="mt-6">
+        <h3 class="font-medium">Pruebas rápidas (ejemplos)</h3>
+        <ul class="list-disc ml-5 text-sm text-slate-700 mt-2">
+          <li>Escribe: "Sugerir palabras clave"</li>
+          <li>Escribe: "¿Cómo diseñar una medición cuantitativa?"</li>
+          <li>Escribe: "Resume el documento"</li>
+        </ul>
+      </div>
+    </section>
+
+    <aside class="bg-white rounded-xl p-4 shadow-sm h-fit">
+      <h3 class="font-semibold mb-3">Asistente (IA local)</h3>
+      <div id="chat-messages" class="flex flex-col gap-3 max-h-72 overflow-y-auto mb-3">
+        <div class="bg-white border border-slate-200 p-3 rounded-xl chat-bubble">¡Hola! Soy el asistente local. Pregúntame sobre metodología cuantitativa, niveles de medición o pide palabras clave.</div>
+      </div>
+      <form id="chat-form" class="flex gap-2">
+        <input id="chat-input" placeholder="Escribe tu pregunta..." class="flex-1 border rounded-full px-3 py-2 text-sm" autocomplete="off" />
+        <button class="bg-blue-600 text-white px-3 py-2 rounded-full text-sm">Enviar</button>
+      </form>
+    </aside>
+  </main>
+
+  <footer class="max-w-4xl mx-auto px-6 py-6 text-xs text-slate-500">Demo local — No requiere claves. Para producción, conecta un backend seguro que comunique con el proveedor de IA.</footer>
+
+  <script>
+    // ======= Lógica del asistente local y generador de keywords =======
+
+    const keywordsPool = [
+      'teoría de la medición', 'measurement theory', 'indicadores sociales', 'social indicators',
+      'niveles de medición', 'metric levels', 'constructos latentes', 'latent constructs',
+      'validación de instrumentos', 'instrument validation', 'escala Likert', 'Likert scale',
+      'fiabilidad', 'reliability', 'validez', 'validity', 'análisis factorial', 'factor analysis'
+    ];
+
+    function pickKeywords(n = 5) {
+      const out = [];
+      const copy = [...keywordsPool];
+      while (out.length < n && copy.length) {
+        const i = Math.floor(Math.random() * copy.length);
+        out.push(copy.splice(i,1)[0]);
+      }
+      return out;
+    }
+
+    document.getElementById('generate-keywords-btn').addEventListener('click', () => {
+      const container = document.getElementById('ai-keywords-result');
+      container.innerHTML = '';
+      const kws = pickKeywords();
+      kws.forEach(k => {
+        const el = document.createElement('span');
+        el.className = 'px-3 py-1 bg-sky-50 text-sky-800 rounded-full text-xs border border-sky-100';
+        el.textContent = k;
+        container.appendChild(el);
+      });
+    });
+
+    // Chat
+    const chatForm = document.getElementById('chat-form');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
+
+    function appendChat(text, isUser = false) {
+      const div = document.createElement('div');
+      div.className = (isUser ? 'self-end bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-700') + ' p-3 rounded-xl chat-bubble max-w-[85%]';
+      div.textContent = text;
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function localAssistantReply(text) {
+      const t = text.toLowerCase();
+
+      if (/palabras clave|keywords|sugerir/i.test(t)) {
+        const kws = pickKeywords();
+        return 'Aquí tienes 5 palabras clave sugeridas:\n' + kws.map(k => '- ' + k).join('\n');
+      }
+
+      if (/resum|resume|resume el|resume documento|resume el documento|resumir/i.test(t)) {
+        return 'Resumen breve: El documento explica niveles de medición (nominal, ordinal, intervalar, razón), la teoría representacional de la medición, y procedimientos para construir y validar indicadores sociales.';
+      }
+
+      if (/cómo|como|diseñ|procedimient|medir|medición/i.test(t)) {
+        return 'Guía breve para diseñar mediciones cuantitativas:\n1) Define el constructo y su operacionalización.\n2) Selecciona indicadores observables.\n3) Diseña la escala (p.ej. Likert).\n4) Realiza prueba piloto y evalúa fiabilidad y validez.\n5) Ajusta y aplica la recolección.';
+      }
+
+      if (/estadística|regresión|correlación|media|desviación/i.test(t)) {
+        return 'Indicaciones rápidas: Elige pruebas según el nivel de medición. Nominal: tablas de frecuencia / chi-cuadrado. Ordinal: pruebas no paramétricas. Intervalar/razón: media, t, ANOVA, correlación y regresión.';
+      }
+
+      // fallback: intentar responder con extracto del documento
+      // simple búsqueda por palabras clave en el contenido de la página
+      const docText = document.body.innerText.toLowerCase();
+      const keywords = ['niveles de medición','teoría representacional','indicadores','validación','fiabilidad','constructos'];
+      for (const kw of keywords) {
+        if (t.includes(kw) || docText.includes(t)) {
+          return 'Basado en el documento: busca secciones relacionadas con "' + kw + '" para más detalles.';
         }
+      }
 
-        async function callServerAPI(messages) {
-            if (!SERVER_CHAT_ENDPOINT) throw new Error('No server endpoint configured');
-            const resp = await fetch(SERVER_CHAT_ENDPOINT, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ messages })
-            });
-            if (!resp.ok) {
-                const txt = await resp.text();
-                throw new Error(`Server error ${resp.status}: ${txt}`);
-            }
-            const data = await resp.json();
-            if (typeof data.reply === 'string') return data.reply;
-            if (data.choices && data.choices[0] && data.choices[0].text) return data.choices[0].text;
-            throw new Error('Formato de respuesta del servidor inválido');
-        }
+      return 'Lo siento, no entendí exactamente. Puedes pedir: "Sugerir palabras clave", "Resume el documento" o preguntar cómo diseñar una medición.';
+    }
 
-        // ======= ASISTENTE LOCAL (FALLBACK) =======
-        function generateLocalKeywords() {
-            // Palabras clave mixtas (español / inglés)
-            const candidates = [
-                'teoría de la medición', 'measurement theory', 'indicadores sociales', 'social indicators',
-                'niveles de medición', 'metric levels', 'constructos latentes', 'latent constructs',
-                'validación de instrumentos', 'instrument validation', 'escala de Likert', 'Likert scale',
-                'fiabilidad', 'reliability', 'validez', 'validity'
-            ];
-            // Seleccionar 5 variadas
-            const out = [];
-            while (out.length < 5) {
-                const pick = candidates[Math.floor(Math.random() * candidates.length)];
-                if (!out.includes(pick)) out.push(pick);
-            }
-            return out;
-        }
+    chatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = chatInput.value.trim();
+      if (!text) return;
+      appendChat(text, true);
+      chatInput.value = '';
+      // Simular procesamiento
+      setTimeout(() => {
+        const reply = localAssistantReply(text);
+        appendChat(reply, false);
+      }, 400);
+    });
 
-        function summarizeFromDocument(query) {
-            // Tomar el texto del artículo y devolver un resumen simple basado en ocurrencias
-            const main = document.getElementById('main-article');
-            const text = main ? main.innerText : document.body.innerText;
-            const qs = query.toLowerCase().split(/\s+/).filter(Boolean);
-            const sentences = text.match(/[^.!?]+[.!?]?/g) || [text.slice(0, 500)];
-            // Puntuar oraciones por cuántas palabras de la query contienen
-            const scored = sentences.map(s => {
-                const low = s.toLowerCase();
-                const score = qs.reduce((acc, w) => acc + (low.includes(w) ? 1 : 0), 0);
-                return { s: s.trim(), score };
-            });
-            scored.sort((a,b)=>b.score-a.score);
-            const top = scored.filter(x=>x.score>0).slice(0,3).map(x=>x.s);
-            if (top.length) return 'Basado en el documento: ' + top.join(' ');
-            // Si no hay coincidencias, devolver una síntesis genérica
-            return 'Puedo ayudarte a entender conceptos del documento. Por ejemplo: niveles de medición, teoría de la medición, construcción de indicadores. ¿Sobre cuál quieres que profundice?';
-        }
-
-        function localAssistantReply(messages) {
-            const last = messages[messages.length - 1];
-            const text = (last && last.content) ? last.content.toLowerCase() : '';
-
-            // Si el usuario pide palabras clave
-            if (/palabras clave|keywords|sugerir|sugerencia|sugerir más/i.test(text)) {
-                const kws = generateLocalKeywords();
-                return `Aquí tienes 5 palabras clave sugeridas:\n` + kws.map(k=>`- ${k}`).join('\n');
-            }
-
-            // Si pide resumen o definición sobre algo
-            if (/define|definir|explica|explicar|resumen|resume|qué es|qué son|qué significa|como medir|cómo medir/i.test(text)) {
-                return summarizeFromDocument(text);
-            }
-
-            // Si pregunta por procesos técnicos simples
-            if (/cómo|como|procedimiento|método|metodolog/i.test(text)) {
-                return 'Para diseñar mediciones cuantitativas: 1) Define constructos y operaciones de medición; 2) Selecciona indicadores observables; 3) Diseña la escala y procedimiento de recolección; 4) Evalúa fiabilidad y validez con pruebas piloto.';
-            }
-
-            // Preguntas relacionadas con estadística básica
-            if (/media|promedio|desviación|regresión|estadística|correlación/i.test(text)) {
-                return 'Para análisis cuantitativos comunes: prueba t para medias, chi-cuadrado para tablas de contingencia, correlación de Pearson para relaciones lineales, y regresión para modelar predictores. El nivel de medición (nominal/ordinal/intervalar/razón) condiciona las pruebas apropiadas.';
-            }
-
-            // fallback general
-            return 'Puedo ayudar con resúmenes del documento, generar palabras clave, o explicar conceptos de metodología cuantitativa. Prueba: "Sugerir palabras clave" o pregunta algo específico sobre niveles de medición.';
-        }
-
-        // ======= UI / CHAT =======
-        const chatWindow = document.getElementById('ai-chat-window');
-        const toggleBtn = document.getElementById('toggle-chat-btn');
-        const closeBtn = document.getElementById('close-chat-btn');
-        const chatForm = document.getElementById('chat-form');
-        const chatInput = document.getElementById('chat-input');
-        const chatMessages = document.getElementById('chat-messages');
-        const generateKwBtn = document.getElementById('generate-keywords-btn');
-        const aiKeywordsContainer = document.getElementById('ai-keywords-container');
-        const aiKeywordsLoading = document.getElementById('ai-keywords-loading');
-        const aiKeywordsResult = document.getElementById('ai-keywords-result');
-
-        let chatHistory = [];
-
-        function toggleChat() {
-            const isHidden = chatWindow.classList.contains('hidden');
-            if (isHidden) {
-                chatWindow.classList.remove('hidden');
-                chatWindow.classList.add('flex');
-                setTimeout(() => chatInput.focus(), 100);
-            } else {
-                chatWindow.classList.add('hidden');
-                chatWindow.classList.remove('flex');
-            }
-        }
-        toggleBtn.addEventListener('click', toggleChat);
-        closeBtn.addEventListener('click', toggleChat);
-
-        function appendMessage(text, isUser = false) {
-            const msgDiv = document.createElement('div');
-            msgDiv.className = `p-3 rounded-xl text-sm shadow-sm leading-relaxed max-w-[85%] ${isUser ? 'bg-secondary text-white self-end rounded-tr-none' : 'bg-white border border-slate-200 text-slate-700 self-start rounded-tl-none whitespace-pre-wrap'}`;
-            msgDiv.textContent = text;
-            chatMessages.appendChild(msgDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            return msgDiv;
-        }
-
-        function appendLoading() {
-            const msgDiv = document.createElement('div');
-            msgDiv.className = 'bg-white border border-slate-200 p-3 rounded-xl rounded-tl-none self-start max-w-[85%] text-sm text-slate-500 shadow-sm flex items-center gap-2';
-            msgDiv.id = 'chat-loading-indicator';
-            msgDiv.innerHTML = '<span class="flex gap-1"><span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span><span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay:0.1s"></span><span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay:0.2s"></span></span> Procesando...';
-            chatMessages.appendChild(msgDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function removeLoading() {
-            const loadingMsg = document.getElementById('chat-loading-indicator');
-            if (loadingMsg) loadingMsg.remove();
-        }
-
-        async function handleUserMessage(text) {
-            // agregar al historial local (solo el contenido)
-            chatHistory.push({ role: 'user', content: text });
-            appendLoading();
-            try {
-                let reply;
-                if (SERVER_CHAT_ENDPOINT) {
-                    // intentar servidor
-                    try {
-                        reply = await callServerAPI(chatHistory);
-                    } catch (e) {
-                        console.warn('Error al llamar al servidor, usando asistente local:', e);
-                        reply = localAssistantReply(chatHistory);
-                    }
-                } else {
-                    // fallback local
-                    reply = localAssistantReply(chatHistory);
-                }
-                removeLoading();
-                appendMessage(reply, false);
-                chatHistory.push({ role: 'assistant', content: reply });
-            } catch (err) {
-                removeLoading();
-                appendMessage('Error interno: ' + err.message, false);
-                console.error(err);
-            }
-        }
-
-        chatForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const text = chatInput.value.trim();
-            if (!text) return;
-            appendMessage(text, true);
-            chatInput.value = '';
-            chatInput.disabled = true;
-            handleUserMessage(text).then(()=>{ chatInput.disabled = false; chatInput.focus(); });
-        });
-
-        // ===== Generador de palabras clave (usa servidor si está disponible, sino local) =====
-        if (generateKwBtn) {
-            generateKwBtn.addEventListener('click', async () => {
-                generateKwBtn.disabled = true;
-                aiKeywordsContainer.classList.remove('hidden');
-                aiKeywordsLoading.classList.remove('hidden');
-                aiKeywordsResult.innerHTML = '';
-
-                try {
-                    if (SERVER_CHAT_ENDPOINT) {
-                        // pedir al servidor que genere keywords
-                        const messages = [{ role: 'user', content: 'Genera 5 palabras clave de búsqueda (mezcla español/inglés) sobre metodología cuantitativa y medición social. Responde como JSON array.' }];
-                        const serverReply = await callServerAPI(messages);
-                        // intentar extraer JSON
-                        const match = serverReply.match(/\[[\s\S]*\]/);
-                        let keywords = null;
-                        if (match) keywords = JSON.parse(match[0]);
-                        if (!keywords) throw new Error('Formato inválido de respuesta del servidor');
-                        aiKeywordsLoading.classList.add('hidden');
-                        keywords.forEach((kw, i)=>{
-                            const span = document.createElement('span');
-                            span.className = 'px-3 py-1 bg-accent/30 border border-blue-200 text-primary rounded-full text-xs font-medium shadow-sm';
-                            span.textContent = kw;
-                            aiKeywordsResult.appendChild(span);
-                        });
-                    } else {
-                        const kws = generateLocalKeywords();
-                        aiKeywordsLoading.classList.add('hidden');
-                        kws.forEach(k=>{
-                            const span = document.createElement('span');
-                            span.className = 'px-3 py-1 bg-accent/30 border border-blue-200 text-primary rounded-full text-xs font-medium shadow-sm';
-                            span.textContent = k;
-                            aiKeywordsResult.appendChild(span);
-                        });
-                    }
-                } catch (err) {
-                    aiKeywordsLoading.classList.add('hidden');
-                    aiKeywordsResult.innerHTML = `<span class="text-xs text-red-500 font-medium bg-red-50 px-2 py-1 rounded">Error: ${escapeHtml(err.message)}</span>`;
-                    console.error(err);
-                    generateKwBtn.disabled = false;
-                }
-            });
-        }
-
-        // Mensaje de estado si no hay endpoint
-        if (!SERVER_CHAT_ENDPOINT) {
-            console.info('Servidor de IA no configurado: funcionando con asistente local heurístico. Para integrar un modelo real, configure SERVER_CHAT_ENDPOINT en el código y provea un endpoint seguro que gestione claves.');
-        }
-
-    </script>
+    // Quick demo: when the page loads, show a small tip
+    window.addEventListener('load', () => {
+      // no-op for now
+    });
+  </script>
 </body>
 </html>
