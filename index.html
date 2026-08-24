@@ -5,60 +5,226 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Demo IA - Metodología Cuantitativa</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    body { 
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: #0a0e27;
+      color: #f0f0f0;
+    }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
     .chat-bubble { white-space: pre-wrap; }
+    
+    /* Gradientes y efectos editorial */
+    .gradient-text {
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .glassmorphism {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .accent-line {
+      background: linear-gradient(90deg, #ffd700 0%, #ffed4e 50%, rgba(255, 237, 74, 0) 100%);
+      height: 2px;
+    }
+    
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 237, 74, 0.05) 100%);
+      border-left: 3px solid #ffd700;
+    }
+    
+    .button-primary {
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      color: #0a0e27;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 24px rgba(255, 215, 0, 0.2);
+    }
+    
+    .button-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(255, 215, 0, 0.3);
+    }
+    
+    .keyword-tag {
+      background: rgba(255, 215, 0, 0.1);
+      border: 1px solid rgba(255, 215, 0, 0.3);
+      color: #ffd700;
+      transition: all 0.3s ease;
+    }
+    
+    .keyword-tag:hover {
+      background: rgba(255, 215, 0, 0.2);
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.2);
+    }
+    
+    .chat-user {
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      color: #0a0e27;
+      font-weight: 500;
+    }
+    
+    .chat-assistant {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 215, 0, 0.2);
+      color: #e0e0e0;
+    }
+    
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 215, 0, 0.3);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 215, 0, 0.5);
+    }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen">
-  <header class="bg-white border-b shadow-sm">
-    <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-      <div>
-        <h1 class="text-lg font-semibold">Informe: Metodología Cuantitativa (Demo IA)</h1>
-        <p class="text-sm text-slate-500">Interfaz de demostración que incluye un asistente local (fallback) y un generador de palabras clave.</p>
+<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
+  <header class="border-b border-slate-700/50 bg-gradient-to-b from-slate-900 to-slate-950/50 backdrop-blur-sm">
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="flex items-start justify-between mb-4">
+        <div>
+          <h1 class="text-5xl font-bold gradient-text mb-2">Informe IA</h1>
+          <p class="text-base text-slate-400 font-light">Metodología Cuantitativa — Demostración Interactiva</p>
+        </div>
+        <div class="text-xs text-slate-500 font-mono tracking-wider">DEMO v1.0</div>
       </div>
-      <div class="text-xs text-slate-400">Archivo reemplazado para demo</div>
+      <div class="accent-line"></div>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto p-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-    <section class="lg:col-span-2 bg-white rounded-xl p-6 shadow-sm">
-      <h2 class="text-xl font-semibold mb-3">Resumen del documento</h2>
-      <p class="text-slate-700 leading-relaxed">Este documento explica conceptos clave sobre la medición en investigación social: niveles de medición (nominal, ordinal, intervalar, razón), teoría representacional, construcción de indicadores y procedimientos de validación.</p>
-
-      <div class="mt-6">
-        <h3 class="font-medium">Estrategia de búsqueda</h3>
-        <p class="text-sm text-slate-600">Usa el botón para generar palabras clave mixtas (español / inglés) que te ayudarán a buscar literatura académica.</p>
-        <div class="mt-3 flex items-center gap-3">
-          <button id="generate-keywords-btn" class="bg-blue-600 text-white px-3 py-2 rounded-lg shadow-sm text-sm">Sugerir palabras clave</button>
-          <div id="ai-keywords-result" class="flex flex-wrap gap-2"></div>
+  <main class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+    
+    <!-- Panel principal de contenido -->
+    <section class="lg:col-span-2">
+      
+      <!-- Resumen del documento -->
+      <article class="glassmorphism rounded-2xl p-8 mb-8 hover:border-slate-600/50 transition-all duration-300">
+        <h2 class="text-3xl font-bold mb-4 text-white">Resumen Editorial</h2>
+        <div class="accent-line mb-6"></div>
+        
+        <p class="text-slate-300 leading-relaxed text-lg font-light mb-6">
+          Este documento explora los <span class="text-amber-300">fundamentos de la medición en investigación social</span>, 
+          abarcando desde los niveles de medición (nominal, ordinal, intervalar, razón) hasta la teoría representacional 
+          y procedimientos para construir y validar instrumentos de recolección de datos.
+        </p>
+        
+        <div class="highlight-box rounded-lg p-6 mb-8">
+          <h3 class="text-amber-300 font-bold mb-3 text-sm uppercase tracking-wider">Conceptos Clave</h3>
+          <ul class="space-y-2 text-sm text-slate-300">
+            <li class="flex items-start gap-3">
+              <span class="text-amber-400 mt-1">▸</span>
+              <span><strong>Operacionalización:</strong> Transformar conceptos abstractos en variables medibles</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-amber-400 mt-1">▸</span>
+              <span><strong>Validez y Fiabilidad:</strong> Garantizar precisión y consistencia en la medición</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-amber-400 mt-1">▸</span>
+              <span><strong>Escalas de Medición:</strong> Niveles de sofisticación en el análisis de datos</span>
+            </li>
+          </ul>
         </div>
-      </div>
+      </article>
 
-      <div class="mt-6">
-        <h3 class="font-medium">Pruebas rápidas (ejemplos)</h3>
-        <ul class="list-disc ml-5 text-sm text-slate-700 mt-2">
-          <li>Escribe: "Sugerir palabras clave"</li>
-          <li>Escribe: "¿Cómo diseñar una medición cuantitativa?"</li>
-          <li>Escribe: "Resume el documento"</li>
+      <!-- Estrategia de búsqueda -->
+      <article class="glassmorphism rounded-2xl p-8 mb-8">
+        <h3 class="text-2xl font-bold mb-4 text-white">Generador de Palabras Clave</h3>
+        <div class="accent-line mb-6"></div>
+        
+        <p class="text-slate-400 leading-relaxed mb-6 font-light">
+          Genera palabras clave multilingües (español/inglés) optimizadas para búsqueda de literatura académica. 
+          Cada combinación está pensada para maximizar resultados relevantes en bases de datos especializadas.
+        </p>
+        
+        <div class="flex flex-col gap-4">
+          <button id="generate-keywords-btn" class="button-primary px-6 py-3 rounded-lg text-sm uppercase font-bold tracking-wider w-full hover:shadow-2xl">
+            ✨ Generar Palabras Clave
+          </button>
+          <div id="ai-keywords-result" class="flex flex-wrap gap-3"></div>
+        </div>
+      </article>
+
+      <!-- Pruebas rápidas -->
+      <article class="glassmorphism rounded-2xl p-8">
+        <h3 class="text-2xl font-bold mb-4 text-white">Pruebas Interactivas</h3>
+        <div class="accent-line mb-6"></div>
+        
+        <p class="text-slate-400 text-sm mb-4 font-light">Prueba estos comandos en el asistente:</p>
+        
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3 p-3 bg-slate-900/30 rounded-lg hover:bg-slate-900/50 transition">
+            <span class="text-amber-400 font-bold min-w-fit">→</span>
+            <span class="text-slate-300 font-mono text-sm">"Sugerir palabras clave"</span>
+          </li>
+          <li class="flex items-start gap-3 p-3 bg-slate-900/30 rounded-lg hover:bg-slate-900/50 transition">
+            <span class="text-amber-400 font-bold min-w-fit">→</span>
+            <span class="text-slate-300 font-mono text-sm">"¿Cómo diseñar una medición cuantitativa?"</span>
+          </li>
+          <li class="flex items-start gap-3 p-3 bg-slate-900/30 rounded-lg hover:bg-slate-900/50 transition">
+            <span class="text-amber-400 font-bold min-w-fit">→</span>
+            <span class="text-slate-300 font-mono text-sm">"Resume el documento"</span>
+          </li>
+          <li class="flex items-start gap-3 p-3 bg-slate-900/30 rounded-lg hover:bg-slate-900/50 transition">
+            <span class="text-amber-400 font-bold min-w-fit">→</span>
+            <span class="text-slate-300 font-mono text-sm">"Explica los niveles de medición"</span>
+          </li>
         </ul>
-      </div>
+      </article>
     </section>
 
-    <aside class="bg-white rounded-xl p-4 shadow-sm h-fit">
-      <h3 class="font-semibold mb-3">Asistente (IA local)</h3>
-      <div id="chat-messages" class="flex flex-col gap-3 max-h-72 overflow-y-auto mb-3">
-        <div class="bg-white border border-slate-200 p-3 rounded-xl chat-bubble">¡Hola! Soy el asistente local. Pregúntame sobre metodología cuantitativa, niveles de medición o pide palabras clave.</div>
+    <!-- Panel lateral: Chat -->
+    <aside class="glassmorphism rounded-2xl p-6 h-fit sticky top-6 lg:col-span-1">
+      <div class="flex items-center justify-between mb-6">
+        <h3 class="text-xl font-bold text-white">Asistente IA Local</h3>
+        <div class="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></div>
       </div>
+      
+      <div class="accent-line mb-6"></div>
+      
+      <div id="chat-messages" class="flex flex-col gap-3 max-h-96 overflow-y-auto mb-4">
+        <div class="chat-assistant p-4 rounded-xl chat-bubble text-sm leading-relaxed">
+          <strong class="block mb-2 text-amber-300">¡Bienvenido!</strong>
+          Soy tu asistente local. Pregúntame sobre metodología cuantitativa, niveles de medición, validación de instrumentos o pide palabras clave para tu investigación.
+        </div>
+      </div>
+      
       <form id="chat-form" class="flex gap-2">
-        <input id="chat-input" placeholder="Escribe tu pregunta..." class="flex-1 border rounded-full px-3 py-2 text-sm" autocomplete="off" />
-        <button class="bg-blue-600 text-white px-3 py-2 rounded-full text-sm">Enviar</button>
+        <input 
+          id="chat-input" 
+          placeholder="Escribe aquí..." 
+          class="flex-1 bg-slate-900/50 border border-slate-700 rounded-full px-4 py-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/30 transition" 
+          autocomplete="off" 
+        />
+        <button class="button-primary px-4 py-3 rounded-full text-xs font-bold hover:scale-105 transition-transform">
+          →
+        </button>
       </form>
     </aside>
   </main>
 
-  <footer class="max-w-4xl mx-auto px-6 py-6 text-xs text-slate-500">Demo local — No requiere claves. Para producción, conecta un backend seguro que comunique con el proveedor de IA.</footer>
+  <footer class="max-w-7xl mx-auto px-6 py-8 text-center border-t border-slate-700/50 mt-12">
+    <p class="text-xs text-slate-500 font-mono tracking-wider">
+      ⚡ Demostración local — Sin conexión externa requerida
+    </p>
+    <p class="text-xs text-slate-600 mt-2">
+      Para producción, integra un backend seguro con proveedores de IA certificados
+    </p>
+  </footer>
 
   <script>
     // ======= Lógica del asistente local y generador de keywords =======
@@ -67,10 +233,12 @@
       'teoría de la medición', 'measurement theory', 'indicadores sociales', 'social indicators',
       'niveles de medición', 'metric levels', 'constructos latentes', 'latent constructs',
       'validación de instrumentos', 'instrument validation', 'escala Likert', 'Likert scale',
-      'fiabilidad', 'reliability', 'validez', 'validity', 'análisis factorial', 'factor analysis'
+      'fiabilidad', 'reliability', 'validez', 'validity', 'análisis factorial', 'factor analysis',
+      'operacionalización', 'operationalization', 'sesgo de medición', 'measurement bias',
+      'confiabilidad test-retest', 'test-retest reliability', 'validez convergente', 'convergent validity'
     ];
 
-    function pickKeywords(n = 5) {
+    function pickKeywords(n = 6) {
       const out = [];
       const copy = [...keywordsPool];
       while (out.length < n && copy.length) {
@@ -83,10 +251,10 @@
     document.getElementById('generate-keywords-btn').addEventListener('click', () => {
       const container = document.getElementById('ai-keywords-result');
       container.innerHTML = '';
-      const kws = pickKeywords();
+      const kws = pickKeywords(6);
       kws.forEach(k => {
         const el = document.createElement('span');
-        el.className = 'px-3 py-1 bg-sky-50 text-sky-800 rounded-full text-xs border border-sky-100';
+        el.className = 'keyword-tag px-4 py-2 rounded-full text-xs font-medium cursor-default';
         el.textContent = k;
         container.appendChild(el);
       });
@@ -99,7 +267,7 @@
 
     function appendChat(text, isUser = false) {
       const div = document.createElement('div');
-      div.className = (isUser ? 'self-end bg-blue-600 text-white' : 'bg-white border border-slate-200 text-slate-700') + ' p-3 rounded-xl chat-bubble max-w-[85%]';
+      div.className = (isUser ? 'chat-user' : 'chat-assistant') + ' p-4 rounded-xl chat-bubble text-sm leading-relaxed max-w-[95%]';
       div.textContent = text;
       chatMessages.appendChild(div);
       chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -109,33 +277,28 @@
       const t = text.toLowerCase();
 
       if (/palabras clave|keywords|sugerir/i.test(t)) {
-        const kws = pickKeywords();
-        return 'Aquí tienes 5 palabras clave sugeridas:\n' + kws.map(k => '- ' + k).join('\n');
+        const kws = pickKeywords(5);
+        return '✦ Palabras clave sugeridas:\n\n' + kws.map(k => '• ' + k).join('\n');
       }
 
       if (/resum|resume|resume el|resume documento|resume el documento|resumir/i.test(t)) {
-        return 'Resumen breve: El documento explica niveles de medición (nominal, ordinal, intervalar, razón), la teoría representacional de la medición, y procedimientos para construir y validar indicadores sociales.';
+        return '▸ Resumen breve:\n\nEl documento explica los niveles de medición (nominal, ordinal, intervalar, razón), la teoría representacional de la medición, y procedimientos para construir y validar instrumentos. Incluye discusión sobre indicadores, escalas, validez y fiabilidad.';
       }
 
-      if (/cómo|como|diseñ|procedimient|medir|medición/i.test(t)) {
-        return 'Guía breve para diseñar mediciones cuantitativas:\n1) Define el constructo y su operacionalización.\n2) Selecciona indicadores observables.\n3) Diseña la escala (p.ej. Likert).\n4) Realiza prueba piloto y evalúa fiabilidad y validez.\n5) Ajusta y aplica la recolección.';
+      if (/cómo|como|diseñ|procedimient|medir|medición|cuantitativa/i.test(t)) {
+        return '▸ Guía para diseñar mediciones:\n\n1) Define el constructo y su operacionalización\n2) Selecciona indicadores observables\n3) Diseña la escala (ej. Likert 1-5)\n4) Prueba confiabilidad (Cronbach α)\n5) Valida convergente y discriminante\n6) Documenta procedimientos';
       }
 
-      if (/estadística|regresión|correlación|media|desviación/i.test(t)) {
-        return 'Indicaciones rápidas: Elige pruebas según el nivel de medición. Nominal: tablas de frecuencia / chi-cuadrado. Ordinal: pruebas no paramétricas. Intervalar/razón: media, t, ANOVA, correlación y regresión.';
+      if (/estadística|regresión|correlación|media|desviación|análisis/i.test(t)) {
+        return '▸ Análisis estadístico por nivel:\n\n• Nominal: Tablas cruzadas, chi-cuadrado\n• Ordinal: Pruebas no paramétricas, rho de Spearman\n• Intervalar/Razón: Media, ANOVA, regresión, correlación Pearson\n\nSiempre verifica los supuestos antes de elegir la prueba.';
       }
 
-      // fallback: intentar responder con extracto del documento
-      // simple búsqueda por palabras clave en el contenido de la página
-      const docText = document.body.innerText.toLowerCase();
-      const keywords = ['niveles de medición','teoría representacional','indicadores','validación','fiabilidad','constructos'];
-      for (const kw of keywords) {
-        if (t.includes(kw) || docText.includes(t)) {
-          return 'Basado en el documento: busca secciones relacionadas con "' + kw + '" para más detalles.';
-        }
+      if (/niveles|nominal|ordinal|intervalar|razón/i.test(t)) {
+        return '▸ Los 4 niveles de medición:\n\n1) NOMINAL: Categorías sin orden (ej. género, región)\n2) ORDINAL: Orden pero sin distancia uniforme (ej. satisfacción: bajo-medio-alto)\n3) INTERVALAR: Orden + distancia uniforme, sin cero absoluto (ej. temperatura)\n4) RAZÓN: Intervalar + cero absoluto (ej. ingresos, edad)';
       }
 
-      return 'Lo siento, no entendí exactamente. Puedes pedir: "Sugerir palabras clave", "Resume el documento" o preguntar cómo diseñar una medición.';
+      // fallback
+      return '¿Podrías reformular? Puedo ayudarte con: palabras clave, diseño de mediciones, niveles de medición, análisis estadístico o conceptos de validez.';
     }
 
     chatForm.addEventListener('submit', (e) => {
@@ -144,16 +307,10 @@
       if (!text) return;
       appendChat(text, true);
       chatInput.value = '';
-      // Simular procesamiento
       setTimeout(() => {
         const reply = localAssistantReply(text);
         appendChat(reply, false);
-      }, 400);
-    });
-
-    // Quick demo: when the page loads, show a small tip
-    window.addEventListener('load', () => {
-      // no-op for now
+      }, 500);
     });
   </script>
 </body>
