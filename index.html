@@ -1,3 +1,4 @@
+<!-- Actualizado automáticamente por Copilot: optimización UI y nuevas secciones interactivas (v1.2) -->
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
@@ -97,7 +98,7 @@
         </svg>
         <div>
           <div style="font-weight:700">Informe IA</div>
-          <div class="meta">Metodología Cuantitativa — v1.1</div>
+          <div class="meta">Metodología Cuantitativa — v1.2</div>
         </div>
       </div>
 
@@ -265,7 +266,6 @@
 
     function appendChat(text,isUser=false){
       const d = document.createElement('div');d.className = isUser ? 'chat-user' : 'chat-assistant';d.textContent=text;chatMessages.appendChild(d);chatMessages.scrollTop=chatMessages.scrollHeight;}
-
     function localAssistantReply(text){
       const t=text.toLowerCase();
       if(/palabras clave|sugerir|keywords/.test(t)){
@@ -330,16 +330,6 @@
       const grid = Array.from({length:rows},()=>Array.from({length:cols},()=>''));
 
       const directions = [[0,1],[1,0],[1,1],[-1,1]]; // right, down, diag down-right, diag up-right
-      function canPlace(r,c,dr,dc,len){
-        let rr=r,cc=c;
-        for(let i=0;i<len;i++){
-          if(rr<0||rr>=rows||cc<0||cc>=cols) return false;
-          if(grid[rr][cc] && grid[rr][cc]!==Wcur[i]) return false;
-          rr+=dr;cc+=dc;
-        }
-        return true;
-      }
-
       function placeWord(Wcur){
         const len=Wcur.length;let attempts=0;
         while(attempts<200){
@@ -434,7 +424,6 @@
 
     // Accessibility: keyboard to open sections
     document.querySelectorAll('nav a').forEach(a=>{a.addEventListener('click', (e)=>{e.preventDefault();const id=a.getAttribute('href');document.querySelector(id).scrollIntoView({behavior:'smooth'});});});
-
   </script>
 </body>
 </html>
