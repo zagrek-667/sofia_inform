@@ -7,447 +7,434 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    * {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    :root{
+      --bg-1: #fafbfb; /* soft paper */
+      --card: rgba(255,255,255,0.8);
+      --muted: #5b6770;
+      --accent: #1866d1; /* editorial blue */
+      --accent-2: #2b9fff;
+      --glass: rgba(255,255,255,0.6);
+      --soft-shadow: 0 6px 20px rgba(16,24,40,0.06);
     }
 
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body { 
-      font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #0f1419;
-      color: #e8eaed;
-      font-size: 16px;
-      line-height: 1.6;
-      letter-spacing: -0.3px;
+      font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(43,159,255,0.06), transparent), linear-gradient(180deg, var(--bg-1), #f6f7f8);
+      color: #0f1724;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+      line-height:1.5; font-size:16px;
+      padding-bottom:48px;
     }
 
-    h1, h2, h3, h4, h5, h6 { 
-      font-family: 'Source Serif Pro', Georgia, serif;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-      color: #ffffff;
-    }
+    h1,h2,h3{font-family:'Source Serif Pro', Georgia, serif; color: #071132}
+    h1{font-size:2.25rem;margin:0}
+    h2{font-size:1.125rem;margin:0 0 12px 0}
 
-    h1 { font-size: 2.75rem; line-height: 1.1; }
-    h2 { font-size: 2rem; line-height: 1.2; }
-    h3 { font-size: 1.25rem; line-height: 1.3; }
-    
-    p {
-      color: #bcc0c7;
-      font-weight: 300;
-    }
+    /* Layout */
+    .container{max-width:1100px;margin:0 auto;padding:28px}
+    header{position:sticky;top:0;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));border-bottom:1px solid rgba(15,23,36,0.04);z-index:40}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;max-width:1100px;margin:0 auto;padding:12px 20px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:500}
+    nav a:hover{background:rgba(43,102,190,0.06);color:var(--accent)}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo svg{width:44px;height:44px}
+    .meta{font-size:12px;color:var(--muted)}
 
-    strong { 
-      color: #ffffff;
-      font-weight: 600;
-    }
+    main{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:18px}
+    .card{background:var(--card);border-radius:12px;padding:20px;box-shadow:var(--soft-shadow);border:1px solid rgba(10,14,20,0.04)}
 
-    .chat-bubble { white-space: pre-wrap; }
-    
-    /* Color primario profesional: Azul */
-    .accent-primary {
-      color: #5b9ef5;
-    }
+    /* Hero */
+    .hero{display:flex;gap:20px;align-items:center}
+    .hero-visual{width:340px;height:200px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    .hero-visual svg{max-width:80%;max-height:80%;opacity:0.95}
 
-    .accent-primary-light {
-      color: #8ab4f8;
-    }
+    /* Keywords */
+    .keyword-tag{display:inline-block;background:rgba(43,159,255,0.09);border:1px solid rgba(43,159,255,0.15);color:var(--accent-2);padding:8px 12px;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:0.9rem}
+    .keywords-wrap{display:flex;flex-wrap:wrap;gap:8px}
 
-    .accent-border {
-      border-color: #5b9ef5;
-    }
+    /* Chat aside */
+    aside{position:sticky;top:76px;height:calc(100vh - 110px);overflow:auto}
+    .chat-messages{display:flex;flex-direction:column;gap:10px}
+    .chat-assistant{background:linear-gradient(180deg, rgba(13,52,106,0.06), rgba(13,52,106,0.03));border-radius:10px;padding:14px}
+    .chat-user{background:var(--accent);color:white;padding:10px;border-radius:10px;align-self:flex-end}
 
-    /* Línea de acento */
-    .accent-line {
-      background: linear-gradient(90deg, #5b9ef5 0%, #8ab4f8 50%, rgba(91, 158, 245, 0) 100%);
-      height: 2px;
-    }
+    /* Interactive games */
+    .games-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .wordsearch-grid{display:grid;grid-template-columns:repeat(var(--cols),36px);gap:4px}
+    .wordsearch-cell{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:6px;background:white;border:1px solid rgba(10,14,20,0.04);cursor:pointer;user-select:none}
+    .wordsearch-cell.selected{background:var(--accent);color:white}
 
-    /* Glassmorphism refinado */
-    .glassmorphism {
-      background: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      transition: all 0.3s ease;
-    }
+    .match-board{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .card-item{background:white;border-radius:8px;padding:12px;display:flex;align-items:center;justify-content:center;min-height:48px;cursor:pointer;border:1px solid rgba(10,14,20,0.04)}
+    .card-item.flipped{background:var(--accent);color:white}
 
-    .glassmorphism:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(91, 158, 245, 0.2);
-    }
+    footer{margin-top:28px;text-align:center;color:var(--muted);font-size:13px}
 
-    /* Caja de contenido destacado */
-    .highlight-box {
-      background: linear-gradient(135deg, rgba(91, 158, 245, 0.06) 0%, rgba(91, 158, 245, 0.02) 100%);
-      border-left: 3px solid #5b9ef5;
-      border-radius: 8px;
-    }
+    /* Responsive */
+    @media (max-width:1000px){main{grid-template-columns:1fr;}.hero-visual{display:none}aside{position:relative;height:auto;top:auto}}
 
-    /* Botón primario */
-    .button-primary {
-      background: linear-gradient(135deg, #5b9ef5 0%, #8ab4f8 100%);
-      color: #0f1419;
-      font-weight: 600;
-      font-family: 'IBM Plex Sans', sans-serif;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(91, 158, 245, 0.15);
-      border: none;
-      cursor: pointer;
-    }
-    
-    .button-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(91, 158, 245, 0.25);
-      background: linear-gradient(135deg, #8ab4f8 0%, #a8c8ff 100%);
-    }
+    /* Smooth focus */
+    a:focus, button:focus, input:focus{outline:3px solid rgba(43,102,190,0.08);outline-offset:2px}
 
-    .button-primary:active {
-      transform: translateY(0);
-    }
-
-    /* Tags de palabras clave */
-    .keyword-tag {
-      background: rgba(91, 158, 245, 0.1);
-      border: 1px solid rgba(91, 158, 245, 0.3);
-      color: #8ab4f8;
-      transition: all 0.3s ease;
-      font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.875rem;
-      font-weight: 500;
-      cursor: default;
-    }
-    
-    .keyword-tag:hover {
-      background: rgba(91, 158, 245, 0.2);
-      border-color: rgba(91, 158, 245, 0.6);
-      box-shadow: 0 0 12px rgba(91, 158, 245, 0.15);
-    }
-
-    /* Mensajes del chat */
-    .chat-user {
-      background: linear-gradient(135deg, #5b9ef5 0%, #8ab4f8 100%);
-      color: #0f1419;
-      font-weight: 500;
-      border-radius: 12px;
-      margin-left: auto;
-    }
-    
-    .chat-assistant {
-      background: rgba(91, 158, 245, 0.08);
-      border: 1px solid rgba(91, 158, 245, 0.2);
-      color: #e8eaed;
-      border-radius: 12px;
-    }
-
-    /* Input de chat */
-    .chat-input {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #e8eaed;
-      transition: all 0.3s ease;
-    }
-
-    .chat-input::placeholder {
-      color: #7a8087;
-    }
-
-    .chat-input:focus {
-      outline: none;
-      background: rgba(91, 158, 245, 0.06);
-      border-color: rgba(91, 158, 245, 0.4);
-      box-shadow: 0 0 0 3px rgba(91, 158, 245, 0.1);
-    }
-
-    /* Scrollbar personalizado */
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.02);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba(91, 158, 245, 0.2);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(91, 158, 245, 0.4);
-    }
-
-    /* Indicador de estado activo */
-    .status-indicator {
-      width: 8px;
-      height: 8px;
-      background: #5b9ef5;
-      border-radius: 50%;
-      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
-    }
-
-    /* Ejemplo/comando de prueba */
-    .command-example {
-      background: rgba(255, 255, 255, 0.02);
-      border-left: 2px solid rgba(91, 158, 245, 0.3);
-      padding: 12px 16px;
-      border-radius: 6px;
-      transition: all 0.3s ease;
-    }
-
-    .command-example:hover {
-      background: rgba(91, 158, 245, 0.08);
-      border-left-color: #5b9ef5;
-      transform: translateX(4px);
-    }
-
-    /* Enlaces */
-    a {
-      color: #8ab4f8;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    a:hover {
-      color: #5b9ef5;
-      text-decoration: underline;
-    }
   </style>
 </head>
-<body class="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
-  <header class="border-b border-slate-700/30 bg-gradient-to-b from-slate-900/50 to-slate-950/30 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto px-6 py-10">
-      <div class="flex items-start justify-between mb-6">
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+          <rect width="48" height="48" rx="10" fill="white"/>
+          <path d="M12 32V16h8v16" stroke="url(#g)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M28 32V10h8v22" stroke="white" stroke-opacity="0.9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#1866d1"/>
+              <stop offset="1" stop-color="#2b9fff"/>
+            </linearGradient>
+          </defs>
+        </svg>
         <div>
-          <h1 class="mb-2">Informe IA</h1>
-          <p class="text-sm text-slate-400 font-light tracking-wide">Metodología Cuantitativa — Demostración Interactiva</p>
+          <div style="font-weight:700">Informe IA</div>
+          <div class="meta">Metodología Cuantitativa — v1.1</div>
         </div>
-        <div class="text-xs text-slate-500 font-mono tracking-widest">v1.0</div>
       </div>
-      <div class="accent-line"></div>
+
+      <nav aria-label="Principal">
+        <a href="#resumen">Resumen</a>
+        <a href="#keywords">Palabras Clave</a>
+        <a href="#juegos">Juegos</a>
+        <a href="#contacto">Asistente</a>
+      </nav>
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
-    
-    <!-- Panel principal de contenido -->
-    <section class="lg:col-span-2 space-y-8">
-      
-      <!-- Resumen del documento -->
-      <article class="glassmorphism rounded-xl p-8">
-        <h2 class="mb-4">Resumen Editorial</h2>
-        <div class="accent-line mb-6"></div>
-        
-        <p class="mb-6">
-          Este documento explora los <span class="accent-primary-light font-medium">fundamentos de la medición en investigación social</span>, 
-          abarcando desde los niveles de medición (nominal, ordinal, intervalar, razón) hasta la teoría representacional 
-          y procedimientos para construir y validar instrumentos de recolección de datos.
-        </p>
-        
-        <div class="highlight-box p-6">
-          <h3 class="accent-primary font-semibold mb-4 text-sm uppercase tracking-wide">Conceptos Fundamentales</h3>
-          <ul class="space-y-3">
-            <li class="flex items-start gap-3">
-              <span class="accent-primary-light font-bold mt-1 flex-shrink-0">■</span>
-              <div>
-                <strong class="text-white">Operacionalización</strong>
-                <p class="text-sm text-slate-300">Transformar conceptos abstractos en variables medibles y observables</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="accent-primary-light font-bold mt-1 flex-shrink-0">■</span>
-              <div>
-                <strong class="text-white">Validez y Fiabilidad</strong>
-                <p class="text-sm text-slate-300">Garantizar precisión, consistencia y confiabilidad en la medición</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="accent-primary-light font-bold mt-1 flex-shrink-0">■</span>
-              <div>
-                <strong class="text-white">Escalas de Medición</strong>
-                <p class="text-sm text-slate-300">Niveles de sofisticación para el análisis e interpretación de datos</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </article>
+  <main class="container">
+    <section>
+      <div class="card hero">
+        <div style="flex:1">
+          <h1 class="mb-2">Informe IA — Metodología Cuantitativa</h1>
+          <p style="color:var(--muted);margin:8px 0 18px 0">Guía práctica y herramientas interactivas para diseñar mediciones, validar instrumentos y explorar conceptos clave.</p>
 
-      <!-- Generador de palabras clave -->
-      <article class="glassmorphism rounded-xl p-8">
-        <h2 class="mb-4">Generador de Palabras Clave</h2>
-        <div class="accent-line mb-6"></div>
-        
-        <p class="mb-6">
-          Genera palabras clave multilingües (español/inglés) optimizadas para búsqueda de literatura académica. 
-          Cada combinación está diseñada para maximizar resultados relevantes en bases de datos especializadas.
-        </p>
-        
-        <div class="flex flex-col gap-4">
-          <button id="generate-keywords-btn" class="button-primary px-6 py-3 rounded-lg text-sm font-semibold tracking-wide uppercase">
-            Generar Palabras Clave
-          </button>
-          <div id="ai-keywords-result" class="flex flex-wrap gap-3"></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap">
+            <button id="open-keywords" class="keyword-tag">Generar palabras clave</button>
+            <a href="#juegos" class="keyword-tag" style="background:transparent;border:1px solid rgba(10,14,20,0.04)">Juegos de conceptos</a>
+            <a href="#contacto" class="keyword-tag" style="background:transparent;border:1px solid rgba(10,14,20,0.04)">Abrir asistente</a>
+          </div>
         </div>
-      </article>
 
-      <!-- Pruebas interactivas -->
-      <article class="glassmorphism rounded-xl p-8">
-        <h2 class="mb-4">Ejemplos de Consultas</h2>
-        <div class="accent-line mb-6"></div>
-        
-        <p class="text-sm mb-6">Prueba estos ejemplos en el asistente para comenzar:</p>
-        
-        <ul class="space-y-3">
-          <li class="command-example">
-            <span class="accent-primary font-mono text-sm">→</span>
-            <span class="text-slate-300 font-mono text-sm ml-2">"Sugerir palabras clave para mi búsqueda"</span>
-          </li>
-          <li class="command-example">
-            <span class="accent-primary font-mono text-sm">→</span>
-            <span class="text-slate-300 font-mono text-sm ml-2">"¿Cómo diseñar una medición cuantitativa?"</span>
-          </li>
-          <li class="command-example">
-            <span class="accent-primary font-mono text-sm">→</span>
-            <span class="text-slate-300 font-mono text-sm ml-2">"Resume el documento"</span>
-          </li>
-          <li class="command-example">
-            <span class="accent-primary font-mono text-sm">→</span>
-            <span class="text-slate-300 font-mono text-sm ml-2">"Explica los niveles de medición"</span>
-          </li>
+        <div class="hero-visual" aria-hidden>
+          <!-- Minimal SVG illustration to act as image -->
+          <svg viewBox="0 0 240 140" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="a" x1="0" x2="1"><stop offset="0" stop-color="#1866d1"/><stop offset="1" stop-color="#2b9fff"/></linearGradient>
+            </defs>
+            <rect x="10" y="18" width="110" height="80" rx="8" fill="url(#a)" opacity="0.95"/>
+            <rect x="130" y="10" width="90" height="40" rx="6" fill="white" opacity="0.12"/>
+            <circle cx="170" cy="90" r="28" fill="white" opacity="0.08"/>
+            <g fill="white" opacity="0.95" transform="translate(20,32)">
+              <rect x="0" y="0" width="70" height="8" rx="4"/>
+              <rect x="0" y="18" width="40" height="8" rx="4"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Resumen -->
+      <div id="resumen" class="card" style="margin-top:18px">
+        <h2>Resumen Editorial</h2>
+        <div style="height:6px"></div>
+        <p style="color:var(--muted)">Este documento explora los fundamentos de la medición en investigación social, desde los niveles de medición (nominal, ordinal, intervalar, razón) hasta la teoría representacional y procedimientos para construir y validar instrumentos de recolección de datos. La interfaz ahora incorpora recursos interactivos para aprender y practicar conceptos.</p>
+
+        <div style="display:flex;gap:12px;margin-top:16px;flex-wrap:wrap">
+          <div style="flex:1;min-width:220px" class="card" aria-hidden>
+            <h3>Operacionalización</h3>
+            <p style="color:var(--muted);font-size:0.95rem">Transformar conceptos abstractos en variables observables y medibles. Ej.: definir indicadores para satisfacción.</p>
+          </div>
+          <div style="flex:1;min-width:220px" class="card" aria-hidden>
+            <h3>Validez y Fiabilidad</h3>
+            <p style="color:var(--muted);font-size:0.95rem">Garantizar precisión, consistencia y reproducibilidad en las mediciones mediante pruebas y análisis estadísticos.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Keywords generator -->
+      <div id="keywords" class="card" style="margin-top:18px">
+        <h2>Generador de Palabras Clave</h2>
+        <p style="color:var(--muted)">Genera combinaciones en español e inglés optimizadas para búsquedas académicas.</p>
+        <div style="display:flex;gap:12px;margin-top:12px;align-items:center">
+          <button id="generate-keywords-btn" class="keyword-tag">Generar (6)</button>
+          <div id="ai-keywords-result" class="keywords-wrap" aria-live="polite"></div>
+        </div>
+      </div>
+
+      <!-- Juegos -->
+      <div id="juegos" class="card" style="margin-top:18px">
+        <h2>Secciones Interactivas</h2>
+        <p style="color:var(--muted)">Practica conceptos con juegos cortos: emparejar términos y definiciones, y una sopa de letras para reforzar vocabulario.</p>
+
+        <div class="games-grid" style="margin-top:12px">
+          <!-- Matching game -->
+          <div class="card" style="padding:12px">
+            <h3>Juego: Empareja (Match)</h3>
+            <p style="color:var(--muted);font-size:0.9rem">Haz clic en dos tarjetas para encontrar el par término/definición.</p>
+            <div id="match-board" class="match-board" style="margin-top:10px"></div>
+            <div id="match-feedback" style="margin-top:10px;color:var(--muted)"></div>
+            <button id="match-reset" class="keyword-tag" style="margin-top:10px">Reiniciar juego</button>
+          </div>
+
+          <!-- Wordsearch -->
+          <div class="card" style="padding:12px">
+            <h3>Sopa de Letras</h3>
+            <p style="color:var(--muted);font-size:0.9rem">Encuentra las palabras relacionadas con medición.</p>
+            <div id="wordsearch-area" style="margin-top:10px">
+              <div id="word-list" style="margin-bottom:8px;color:var(--muted)"></div>
+              <div id="wordsearch-grid" class="wordsearch-grid" style="--cols:12"></div>
+              <div id="wordsearch-feedback" style="margin-top:8px;color:var(--muted)"></div>
+              <button id="wordsearch-reset" class="keyword-tag" style="margin-top:8px">Reiniciar sopa</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Examples/queries -->
+      <div class="card" style="margin-top:18px">
+        <h2>Ejemplos de Consultas</h2>
+        <ul style="color:var(--muted);margin-top:8px;display:grid;gap:8px">
+          <li>"Sugerir palabras clave para mi búsqueda"</li>
+          <li>"¿Cómo diseñar una medición cuantitativa?"</li>
+          <li>"Resume el documento"</li>
+          <li>"Explica los niveles de medición"</li>
         </ul>
-      </article>
+      </div>
+
     </section>
 
-    <!-- Panel lateral: Chat -->
-    <aside class="glassmorphism rounded-xl p-6 h-fit sticky top-6 lg:col-span-1">
-      <div class="flex items-center justify-between mb-6">
-        <h3 class="text-lg font-semibold">Asistente IA</h3>
-        <div class="status-indicator"></div>
-      </div>
-      
-      <div class="accent-line mb-6"></div>
-      
-      <div id="chat-messages" class="flex flex-col gap-3 max-h-96 overflow-y-auto mb-4">
-        <div class="chat-assistant p-4 rounded-lg chat-bubble text-sm leading-relaxed">
-          <strong class="block mb-2 text-accent-primary">¡Bienvenido</strong>
-          Soy tu asistente. Pregúntame sobre metodología cuantitativa, niveles de medición, validación de instrumentos o palabras clave para tu investigación.
+    <!-- Aside: Chat -->
+    <aside>
+      <div class="card" id="contacto">
+        <h3>Asistente IA</h3>
+        <div style="height:8px"></div>
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-assistant">¡Bienvenido! Pregunta sobre metodología, validación o usa los juegos para practicar.</div>
         </div>
+
+        <form id="chat-form" style="display:flex;gap:8px;margin-top:12px">
+          <input id="chat-input" placeholder="Escribe tu pregunta..." style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(10,14,20,0.04)" autocomplete="off" />
+          <button class="keyword-tag" type="submit">Enviar</button>
+        </form>
+
+        <div style="margin-top:12px;color:var(--muted);font-size:13px">Demostración local — Para producción, integra un backend seguro.</div>
       </div>
-      
-      <form id="chat-form" class="flex gap-2">
-        <input 
-          id="chat-input" 
-          placeholder="Escribe tu pregunta..." 
-          class="chat-input flex-1 rounded-lg px-4 py-3 text-sm"
-          autocomplete="off" 
-        />
-        <button class="button-primary px-4 py-3 rounded-lg font-semibold hover:scale-105 transition-transform">
-          →
-        </button>
-      </form>
     </aside>
   </main>
 
-  <footer class="max-w-7xl mx-auto px-6 py-8 text-center border-t border-slate-700/30 mt-12">
-    <p class="text-xs text-slate-500 font-mono tracking-wider">
-      Demostración local — Sin conexión externa requerida
-    </p>
-    <p class="text-xs text-slate-600 mt-2">
-      Para producción, integra un backend seguro con proveedores de IA certificados
-    </p>
+  <footer class="container">
+    <p>Diseñado para lectura y práctica — minimalista y profesional.</p>
   </footer>
 
   <script>
-    // ======= Lógica del asistente y generador de palabras clave =======
-
+    // ====== Datos base ======
     const keywordsPool = [
-      'teoría de la medición', 'measurement theory', 'indicadores sociales', 'social indicators',
-      'niveles de medición', 'metric levels', 'constructos latentes', 'latent constructs',
-      'validación de instrumentos', 'instrument validation', 'escala Likert', 'Likert scale',
-      'fiabilidad', 'reliability', 'validez', 'validity', 'análisis factorial', 'factor analysis',
-      'operacionalización', 'operationalization', 'sesgo de medición', 'measurement bias',
-      'confiabilidad test-retest', 'test-retest reliability', 'validez convergente', 'convergent validity'
+      'teoría de la medición','measurement theory','indicadores sociales','social indicators',
+      'niveles de medición','metric levels','constructos latentes','latent constructs',
+      'validación de instrumentos','instrument validation','escala Likert','Likert scale',
+      'fiabilidad','reliability','validez','validity','análisis factorial','factor analysis',
+      'operacionalización','operationalization','sesgo de medición','measurement bias',
+      'confiabilidad test-retest','test-retest reliability','validez convergente','convergent validity'
     ];
 
-    function pickKeywords(n = 6) {
-      const out = [];
-      const copy = [...keywordsPool];
-      while (out.length < n && copy.length) {
-        const i = Math.floor(Math.random() * copy.length);
-        out.push(copy.splice(i,1)[0]);
-      }
+    // ====== Keywords generator ======
+    function pickKeywords(n = 6){
+      const out=[];const copy=[...keywordsPool];
+      while(out.length<n && copy.length){const i=Math.floor(Math.random()*copy.length);out.push(copy.splice(i,1)[0]);}
       return out;
     }
 
-    document.getElementById('generate-keywords-btn').addEventListener('click', () => {
-      const container = document.getElementById('ai-keywords-result');
-      container.innerHTML = '';
-      const kws = pickKeywords(6);
-      kws.forEach(k => {
-        const el = document.createElement('span');
-        el.className = 'keyword-tag px-4 py-2 rounded-lg cursor-default';
-        el.textContent = k;
-        container.appendChild(el);
-      });
+    document.getElementById('generate-keywords-btn').addEventListener('click', ()=>{
+      const container = document.getElementById('ai-keywords-result');container.innerHTML='';
+      const kws=pickKeywords(6);kws.forEach(k=>{const el=document.createElement('span');el.className='keyword-tag';el.textContent=k;container.appendChild(el);});
     });
+    document.getElementById('open-keywords').addEventListener('click', ()=>{document.querySelector('#keywords').scrollIntoView({behavior:'smooth'});document.getElementById('generate-keywords-btn').click();});
 
-    // Chat
+    // ====== Simple local assistant (fallback) ======
     const chatForm = document.getElementById('chat-form');
     const chatInput = document.getElementById('chat-input');
     const chatMessages = document.getElementById('chat-messages');
 
-    function appendChat(text, isUser = false) {
-      const div = document.createElement('div');
-      div.className = (isUser ? 'chat-user' : 'chat-assistant') + ' p-4 rounded-lg chat-bubble text-sm leading-relaxed max-w-[90%]';
-      div.textContent = text;
-      chatMessages.appendChild(div);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
+    function appendChat(text,isUser=false){
+      const d = document.createElement('div');d.className = isUser ? 'chat-user' : 'chat-assistant';d.textContent=text;chatMessages.appendChild(d);chatMessages.scrollTop=chatMessages.scrollHeight;}
+
+    function localAssistantReply(text){
+      const t=text.toLowerCase();
+      if(/palabras clave|sugerir|keywords/.test(t)){
+        const kws=pickKeywords(6);
+        return '✦ Palabras clave sugeridas:\n\n' + kws.map(k=>'• '+k).join('\n');
+      }
+      if(/resum|resume|resumir/.test(t)) return '▸ Resumen:\nEl documento aborda niveles de medición, validez, fiabilidad y procedimientos para construir instrumentos.';
+      if(/cómo|diseñ|medición|medir|procedimient/.test(t)) return '▸ Guía breve:\n1) Define constructo\n2) Operacionaliza\n3) Selecciona escalas\n4) Evalúa validez y fiabilidad';
+      return '¿Puedes especificar? Puedo generar palabras clave, explicar niveles de medición o sugerir pruebas de validez.';
     }
 
-    function localAssistantReply(text) {
-      const t = text.toLowerCase();
+    chatForm.addEventListener('submit', e=>{e.preventDefault();const text=chatInput.value.trim();if(!text) return;appendChat(text,true);chatInput.value='';setTimeout(()=>{appendChat(localAssistantReply(text),false);},400);});
 
-      if (/palabras clave|keywords|sugerir/i.test(t)) {
-        const kws = pickKeywords(5);
-        return '✦ Palabras clave sugeridas:\n\n' + kws.map(k => '• ' + k).join('\n');
-      }
+    // ====== Matching game ======
+    const matchTerms = [
+      {t:'Operacionalización', d:'Convertir concepto en indicadores medibles'},
+      {t:'Validez', d:'El instrumento mide lo que pretende medir'},
+      {t:'Fiabilidad', d:'Consistencia de los resultados en el tiempo'},
+      {t:'Likert', d:'Escala ordinal común para actitudes'},
+      {t:'Análisis Factorial', d:'Técnica para identificar constructos latentes'},
+      {t:'Sesgo de Medición', d:'Errores sistemáticos en la medición'}
+    ];
 
-      if (/resum|resume|resume el|resume documento|resumir/i.test(t)) {
-        return '▸ Resumen breve:\n\nEl documento explora los fundamentos de la medición en investigación social, abarcando niveles de medición (nominal, ordinal, intervalar, razón), la teoría representacional de la medición, y procedimientos para construir y validar instrumentos de recolección de datos.';
-      }
+    let matchState = {first:null,second:null,lock:false};
 
-      if (/cómo|como|diseñ|procedimient|medir|medición|cuantitativa/i.test(t)) {
-        return '▸ Guía para diseñar mediciones:\n\n1) Define el constructo y su operacionalización\n2) Selecciona indicadores observables\n3) Diseña la escala (ej. Likert 1-5)\n4) Prueba confiabilidad\n5) Valida el instrumento\n6) Documenta procedimientos';
-      }
-
-      if (/estadística|regresión|correlación|media|desviación|análisis/i.test(t)) {
-        return '▸ Análisis estadístico por nivel:\n\n• Nominal: Tablas cruzadas, chi-cuadrado\n• Ordinal: Pruebas no paramétricas, rho de Spearman\n• Intervalar/Razón: Media, ANOVA, regresión lineal, correlación de Pearson';
-      }
-
-      if (/niveles|nominal|ordinal|intervalar|razón/i.test(t)) {
-        return '▸ Los 4 niveles de medición:\n\n1) NOMINAL: Categorías sin orden (ej. género, región)\n2) ORDINAL: Orden pero sin distancia uniforme (ej. satisfacción: bajo-medio-alto)\n3) INTERVALAR: Distancias uniformes pero sin cero absoluto (ej. temperatura)\n4) RAZÓN: Intervalar con cero absoluto (ej. edad, peso)';
-      }
-
-      // fallback
-      return '¿Podrías reformular tu pregunta? Puedo ayudarte con: palabras clave, diseño de mediciones, niveles de medición, análisis estadístico o conceptos de validez y fiabilidad.';
+    function initMatch(){
+      const board = document.getElementById('match-board');board.innerHTML='';
+      const pairs = [];
+      matchTerms.forEach(it=>{pairs.push({type:'t',text:it.t,key:it.t});pairs.push({type:'d',text:it.d,key:it.t});});
+      // shuffle
+      for(let i=pairs.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pairs[i],pairs[j]]=[pairs[j],pairs[i]]}
+      pairs.forEach((p,idx)=>{
+        const el = document.createElement('div');el.className='card-item';el.tabIndex=0;el.dataset.key=p.key;el.dataset.index=idx;el.textContent=p.type==='t'?p.text:p.text;
+        el.addEventListener('click',()=>onCardClick(el));board.appendChild(el);
+      });
+      document.getElementById('match-feedback').textContent='Encuentra los pares término/definición.';
+      matchState={first:null,second:null,lock:false};
     }
 
-    chatForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const text = chatInput.value.trim();
-      if (!text) return;
-      appendChat(text, true);
-      chatInput.value = '';
-      setTimeout(() => {
-        const reply = localAssistantReply(text);
-        appendChat(reply, false);
-      }, 500);
+    function onCardClick(el){
+      if(matchState.lock || el.classList.contains('flipped')) return;
+      el.classList.add('flipped');
+      if(!matchState.first){matchState.first=el;return}
+      matchState.second=el;matchState.lock=true;
+      setTimeout(()=>{
+        const a=matchState.first,b=matchState.second;
+        if(a.dataset.key===b.dataset.key){a.style.visibility='hidden';b.style.visibility='hidden';document.getElementById('match-feedback').textContent='¡Correcto!';}
+        else{a.classList.remove('flipped');b.classList.remove('flipped');document.getElementById('match-feedback').textContent='Intenta de nuevo.'}
+        matchState={first:null,second:null,lock:false};
+        // check finished
+        const board=document.getElementById('match-board');if([...board.children].every(c=>c.style.visibility==='hidden')){document.getElementById('match-feedback').textContent='¡Completado! Reinicia para jugar otra vez.'}
+      },700);
+    }
+
+    document.getElementById('match-reset').addEventListener('click',initMatch);
+    initMatch();
+
+    // ====== Wordsearch (sopa de letras) ======
+    function createWordSearch(words,rows=12,cols=12){
+      // uppercase words without spaces
+      const W = words.map(w=>w.toUpperCase().replace(/\s+/g,''));
+      const grid = Array.from({length:rows},()=>Array.from({length:cols},()=>''));
+
+      const directions = [[0,1],[1,0],[1,1],[-1,1]]; // right, down, diag down-right, diag up-right
+      function canPlace(r,c,dr,dc,len){
+        let rr=r,cc=c;
+        for(let i=0;i<len;i++){
+          if(rr<0||rr>=rows||cc<0||cc>=cols) return false;
+          if(grid[rr][cc] && grid[rr][cc]!==Wcur[i]) return false;
+          rr+=dr;cc+=dc;
+        }
+        return true;
+      }
+
+      function placeWord(Wcur){
+        const len=Wcur.length;let attempts=0;
+        while(attempts<200){
+          const dir = directions[Math.floor(Math.random()*directions.length)];
+          const dr=dir[0],dc=dir[1];
+          const r = Math.floor(Math.random()*rows);
+          const c = Math.floor(Math.random()*cols);
+          let rr=r,cc=c;let fits=true;
+          for(let i=0;i<len;i++){
+            if(rr<0||rr>=rows||cc<0||cc>=cols){fits=false;break}
+            const cur=grid[rr][cc];
+            if(cur!=='' && cur!==Wcur[i]){fits=false;break}
+            rr+=dr;cc+=dc;
+          }
+          if(!fits){attempts++;continue}
+          // place
+          rr=r;cc=c;
+          for(let i=0;i<len;i++){grid[rr][cc]=Wcur[i];rr+=dr;cc+=dc}
+          return true;
+        }
+        return false;
+      }
+
+      // place words
+      for(const Wcur of W){
+        placeWord(Wcur);
+      }
+      // fill empty
+      const letters='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)if(!grid[r][c])grid[r][c]=letters[Math.floor(Math.random()*letters.length)];
+      return grid;
+    }
+
+    let selectedCells = [];
+    let wsWords = [];
+
+    function renderWordSearch(words){
+      const rows=12,cols=12;
+      wsWords = words.map(w=>w.toUpperCase().replace(/\s+/g,''));
+      const grid = createWordSearch(words,rows,cols);
+      const container=document.getElementById('wordsearch-grid');container.style.setProperty('--cols',cols);container.innerHTML='';
+      for(let r=0;r<rows;r++){
+        for(let c=0;c<cols;c++){
+          const btn=document.createElement('button');btn.className='wordsearch-cell';btn.dataset.r=r;btn.dataset.c=c;btn.textContent=grid[r][c];
+          btn.addEventListener('click',()=>onWSCellClick(btn));container.appendChild(btn);
+        }
+      }
+      const list = document.getElementById('word-list');list.innerHTML = 'Palabras: ' + words.join(', ');
+      document.getElementById('wordsearch-feedback').textContent='Selecciona la primera y última letra de la palabra.';
+      selectedCells = [];
+    }
+
+    function onWSCellClick(btn){
+      const r = parseInt(btn.dataset.r), c = parseInt(btn.dataset.c);
+      selectedCells.push({r,c,el:btn});
+      btn.classList.add('selected');
+      if(selectedCells.length===2){
+        // build string along the line
+        const a=selectedCells[0],b=selectedCells[1];
+        const dr = Math.sign(b.r-a.r), dc = Math.sign(b.c-a.c);
+        let rr=a.r,cc=a.c, s='';
+        while(true){
+          const cell = document.querySelector(`.wordsearch-cell[data-r='${rr}'][data-c='${cc}']`);
+          s+=cell.textContent;
+          if(rr===b.r && cc===b.c) break;
+          rr+=dr;cc+=dc;
+          if(rr<0||cc<0||rr>=12||cc>=12) break;
+        }
+        const rev = s.split('').reverse().join('');
+        const found = wsWords.find(w=>w===s||w===rev);
+        if(found){
+          document.querySelectorAll('.wordsearch-cell.selected').forEach(x=>x.style.background='var(--accent)');
+          document.getElementById('wordsearch-feedback').textContent = '¡Palabra encontrada: ' + found + '!';
+          // remove word from list
+          wsWords = wsWords.filter(w=>w!==found);
+          if(wsWords.length===0) document.getElementById('wordsearch-feedback').textContent='¡Completada! Reinicia para otra ronda.';
+        } else {
+          document.querySelectorAll('.wordsearch-cell.selected').forEach(x=>x.classList.remove('selected'));
+          document.getElementById('wordsearch-feedback').textContent = 'No coincide. Intenta otra vez (selecciona en línea recta).';
+        }
+        selectedCells = [];
+      }
+    }
+
+    document.getElementById('wordsearch-reset').addEventListener('click', ()=>{
+      const words = ['Operacionalizacion','Validez','Fiabilidad','Likert','AnalisisFactorial','Sesgo'];
+      renderWordSearch(words);
     });
+
+    // initial wordsearch
+    document.getElementById('wordsearch-reset').click();
+
+    // Accessibility: keyboard to open sections
+    document.querySelectorAll('nav a').forEach(a=>{a.addEventListener('click', (e)=>{e.preventDefault();const id=a.getAttribute('href');document.querySelector(id).scrollIntoView({behavior:'smooth'});});});
+
   </script>
 </body>
 </html>
